@@ -37,7 +37,7 @@ defaultproperties
      KillGitterMsg="You will die on Gits from now on."
      KillGitterMsgColour=(R=226,G=2,B=232,A=0)
      MapListType="3SPNv32232.MapListIGFreon"
-     ThawPointAward=2.5
+     ThawPointScale=2.5
      SecsPerRound=120
      OTDamage=5
      OTInterval=3

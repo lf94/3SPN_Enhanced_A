@@ -6,7 +6,7 @@ class Freon extends TeamArenaMaster
 var config float AutoThawTime;
 var config float ThawSpeed;
 var config float MinHealthOnThaw;
-var config float ThawPointAward;
+var config float ThawPointScale;
 
 var bool  bTeamHeal;
 
@@ -33,7 +33,7 @@ function InitGameReplicationInfo()
     Freon_GRI(GameReplicationInfo).AutoThawTime = AutoThawTime;
     Freon_GRI(GameReplicationInfo).ThawSpeed = ThawSpeed;
     Freon_GRI(GameReplicationInfo).bTeamHeal = bTeamHeal;
-    Freon_GRI(GameReplicationInfo).ThawPointAward = ThawPointAward;
+    Freon_GRI(GameReplicationInfo).ThawPointScale = ThawPointScale;
 }
 
 function StartNewRound()
@@ -54,7 +54,7 @@ static function FillPlayInfo(PlayInfo PI)
     PI.AddSetting("3SPN Freon", "AutoThawTime", "Automatic Thawing Time", 0, 102, "Text", "3;0:999");
     PI.AddSetting("3SPN Freon", "ThawSpeed", "Touch Thawing Time", 0, 103, "Text", "3;0:999");
     PI.AddSetting("3SPN Freon", "MinHealthOnThaw", "Minimum Health After Thawing", 0, 104, "Text", "3;0:999");
-    PI.AddSetting("3SPN Freon", "ThawPointAward", "Thaw Points Award", 0, 105, "Text", "8;0:999");
+    PI.AddSetting("3SPN Freon", "ThawPointScale", "Thaw Points Scale", 0, 105, "Text", "8;0:999");
     PI.AddSetting("3SPN Freon", "KillGitters", "Kill Gitters", 0, 106, "Check");
     PI.AddSetting("3SPN Freon", "MaxGitsAllowed", "Max Gits Allowed", 0, 107, "Text", "3;0:999");
 }
@@ -70,7 +70,7 @@ static event string GetDescriptionText(string PropName)
         case "MinHealthOnThaw":         return "Minimum Health After Thawing";
         case "KillGitters":             return "Kill Gitters";
         case "MaxGitsAllowed":          return "Max Gits Allowed";
-        case "ThawPointAward":          return "Thawing Points Award (default is 2.5)";
+        case "ThawPointScale":          return "Thawing Points Scale (default is 2.5)";
     }
 
     return Super.GetDescriptionText(PropName);
@@ -94,9 +94,9 @@ function ParseOptions(string Options)
     if(InOpt != "")
         bTeamHeal = bool(InOpt);
 
-    InOpt = ParseOption(Options, "ThawPointAward");
+    InOpt = ParseOption(Options, "ThawPointScale");
     if(InOpt != "")
-        ThawPointAward = float(InOpt);
+       ThawPointScale = float(InOpt);
 }
 
 event InitGame(string options, out string error)
@@ -414,9 +414,6 @@ function PlayerThawedByTouch(Freon_Pawn Thawed, array<Freon_Pawn> Thawers, optio
 
     for(i = 0; i < Thawers.Length; i++)
     {
-        if(Thawers[i].PlayerReplicationInfo != None)
-            Thawers[i].PlayerReplicationInfo.Score += ThawPointAward;
-
         if(Thawers[i].Controller != None)
             Thawers[i].Controller.AwardAdrenaline(5.0);
 
@@ -424,7 +421,6 @@ function PlayerThawedByTouch(Freon_Pawn Thawed, array<Freon_Pawn> Thawers, optio
         if (xPRI != None)
         {
             Message = None;
-            xPRI.Thaws++;
             switch(xPRI.Thaws)
             {
             case 10: Message = class'Message_Thaw_Flamer';      break;
@@ -672,5 +668,5 @@ defaultproperties
      KillGitterMsg="You will die on Gits from now on."
      KillGitterMsgColour=(R=226,G=2,B=232,A=0)
      MapListType="3SPNv32232.MapListFreon"
-     ThawPointAward=2.5
+     ThawPointScale=2.5
 }
