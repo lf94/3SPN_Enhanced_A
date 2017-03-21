@@ -116,7 +116,7 @@ defaultproperties
          WinHeight=1.000000
          bNeverFocus=True
      End Object
-     Controls(0)=GUIImage'3SPNv32232.Menu_TabTournamentAdmin.TabBackground'
+     Controls(0)=GUIImage'3SPN_Enhanced_A.Menu_TabTournamentAdmin.TabBackground'
 
 	Begin Object Class=GUIButton Name=ApplyButton
 		Caption="Apply Score"
@@ -128,7 +128,7 @@ defaultproperties
 		OnClick=OnClick
 		OnKeyEvent=ApplyButton.InternalOnKeyEvent
 	End Object
-	Controls(1)=GUIButton'3SPNv32232.Menu_TabTournamentAdmin.ApplyButton'
+	Controls(1)=GUIButton'3SPN_Enhanced_A.Menu_TabTournamentAdmin.ApplyButton'
 	 
 	Begin Object Class=GUILabel Name=RedScoreLabel
 		Caption="Red Score:"
@@ -138,7 +138,7 @@ defaultproperties
 		WinHeight=0.037500
 		TextColor=(R=255,G=255,B=255,A=255)
 	End Object
-	Controls(2)=GUILabel'3SPNv32232.Menu_TabTournamentAdmin.RedScoreLabel'
+	Controls(2)=GUILabel'3SPN_Enhanced_A.Menu_TabTournamentAdmin.RedScoreLabel'
 	
 	Begin Object Class=GUIEditBox Name=RedScoreEditBox
 		WinTop=0.10000
@@ -146,7 +146,7 @@ defaultproperties
 		WinWidth=0.10000
 		WinHeight=0.037500
 	End Object
-	Controls(3)=GUIEditBox'3SPNv32232.Menu_TabTournamentAdmin.RedScoreEditBox'
+	Controls(3)=GUIEditBox'3SPN_Enhanced_A.Menu_TabTournamentAdmin.RedScoreEditBox'
 
 	Begin Object Class=GUILabel Name=BlueScoreLabel
 		Caption="Blue Score:"
@@ -156,7 +156,7 @@ defaultproperties
 		WinHeight=0.037500
 		TextColor=(R=255,G=255,B=255,A=255)
 	End Object
-	Controls(4)=GUILabel'3SPNv32232.Menu_TabTournamentAdmin.BlueScoreLabel'
+	Controls(4)=GUILabel'3SPN_Enhanced_A.Menu_TabTournamentAdmin.BlueScoreLabel'
 	
 	Begin Object Class=GUIEditBox Name=BlueScoreEditBox
 		WinTop=0.16000
@@ -164,7 +164,7 @@ defaultproperties
 		WinWidth=0.10000
 		WinHeight=0.037500
 	End Object
-	Controls(5)=GUIEditBox'3SPNv32232.Menu_TabTournamentAdmin.BlueScoreEditBox'	
+	Controls(5)=GUIEditBox'3SPN_Enhanced_A.Menu_TabTournamentAdmin.BlueScoreEditBox'	
   
   Begin Object Class=moCheckBox Name=AdminVisionCheck
     CaptionWidth=0.800000
@@ -176,7 +176,7 @@ defaultproperties
     WinHeight=0.037500
     OnChange=Menu_TabTournamentAdmin.OnChange
   End Object
-  Controls(6)=moCheckBox'3SPNv32232.Menu_TabTournamentAdmin.AdminVisionCheck'
+  Controls(6)=moCheckBox'3SPN_Enhanced_A.Menu_TabTournamentAdmin.AdminVisionCheck'
   
   Begin Object Class=moCheckBox Name=TargetingLineCheck
     CaptionWidth=0.800000
@@ -188,7 +188,7 @@ defaultproperties
     WinHeight=0.037500
     OnChange=Menu_TabTournamentAdmin.OnChange
   End Object
-  Controls(7)=moCheckBox'3SPNv32232.Menu_TabTournamentAdmin.TargetingLineCheck'
+  Controls(7)=moCheckBox'3SPN_Enhanced_A.Menu_TabTournamentAdmin.TargetingLineCheck'
   
   Begin Object Class=moCheckBox Name=NewNetStatsCheck
     CaptionWidth=0.800000
@@ -200,5 +200,5 @@ defaultproperties
     WinHeight=0.037500
     OnChange=Menu_TabTournamentAdmin.OnChange
   End Object
-  Controls(8)=moCheckBox'3SPNv32232.Menu_TabTournamentAdmin.NewNetStatsCheck'
+  Controls(8)=moCheckBox'3SPN_Enhanced_A.Menu_TabTournamentAdmin.NewNetStatsCheck'
 }

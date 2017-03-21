@@ -38,7 +38,7 @@ defaultproperties
 {
 	YouAreThawsome="YOU ARE THAWSOME!"
 	PlayerIsThawsome="IS THAWSOME!"
-	ThawsomeSound=Sound'3SPNv32232.Sounds.Thawsome'
+	ThawsomeSound=Sound'3SPN_Enhanced_A.Sounds.Thawsome'
 	bIsUnique=True
 	bFadeMessage=True
 	Lifetime=5

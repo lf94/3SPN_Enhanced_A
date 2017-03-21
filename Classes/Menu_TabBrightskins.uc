@@ -524,7 +524,7 @@ defaultproperties
          WinHeight=1.000000
          bNeverFocus=True
      End Object
-     Controls(0)=GUIImage'3SPNv32232.Menu_TabBrightskins.TabBackground'
+     Controls(0)=GUIImage'3SPN_Enhanced_A.Menu_TabBrightskins.TabBackground'
 
      Begin Object Class=moCheckBox Name=BrightskinsCheck
          Caption="Disable Brightskins."
@@ -534,7 +534,7 @@ defaultproperties
          WinWidth=0.800000
          OnChange=Menu_TabBrightskins.OnChange
      End Object
-     Controls(1)=moCheckBox'3SPNv32232.Menu_TabBrightskins.BrightskinsCheck'
+     Controls(1)=moCheckBox'3SPN_Enhanced_A.Menu_TabBrightskins.BrightskinsCheck'
 
      Begin Object Class=moCheckBox Name=EnemyAllyCheck
          Caption="Force brightskin colors to Teammates and Enemies."
@@ -545,7 +545,7 @@ defaultproperties
          WinWidth=0.800000
          OnChange=Menu_TabBrightskins.OnChange
      End Object
-     Controls(2)=moCheckBox'3SPNv32232.Menu_TabBrightskins.EnemyAllyCheck'
+     Controls(2)=moCheckBox'3SPN_Enhanced_A.Menu_TabBrightskins.EnemyAllyCheck'
 
      Begin Object Class=GUILabel Name=RedLabel
          Caption="Red Team (Enemies): "
@@ -554,7 +554,7 @@ defaultproperties
          WinLeft=0.100000
          WinHeight=20.000000
      End Object
-     Controls(3)=GUILabel'3SPNv32232.Menu_TabBrightskins.RedLabel'
+     Controls(3)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.RedLabel'
 
      Begin Object Class=GUILabel Name=BlueLabel
          Caption="Blue Team (Teammates): "
@@ -563,7 +563,7 @@ defaultproperties
          WinLeft=0.100000
          WinHeight=20.000000
      End Object
-     Controls(4)=GUILabel'3SPNv32232.Menu_TabBrightskins.BlueLabel'
+     Controls(4)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.BlueLabel'
 
      Begin Object Class=GUILabel Name=YellowLabel
          Caption="Spawn Protected Enemies: "
@@ -572,7 +572,7 @@ defaultproperties
          WinLeft=0.100000
          WinHeight=20.000000
      End Object
-     Controls(28)=GUILabel'3SPNv32232.Menu_TabBrightskins.YellowLabel'
+     Controls(28)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.YellowLabel'
 
      Begin Object Class=GUISlider Name=RedRSlider
          bIntSlider=True
@@ -586,7 +586,7 @@ defaultproperties
          OnKeyEvent=RedRSlider.InternalOnKeyEvent
          OnCapturedMouseMove=RedRSlider.InternalCapturedMouseMove
      End Object
-     Controls(5)=GUISlider'3SPNv32232.Menu_TabBrightskins.RedRSlider'
+     Controls(5)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.RedRSlider'
 
      Begin Object Class=GUISlider Name=RedGSlider
          bIntSlider=True
@@ -600,7 +600,7 @@ defaultproperties
          OnKeyEvent=RedGSlider.InternalOnKeyEvent
          OnCapturedMouseMove=RedGSlider.InternalCapturedMouseMove
      End Object
-     Controls(6)=GUISlider'3SPNv32232.Menu_TabBrightskins.RedGSlider'
+     Controls(6)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.RedGSlider'
 
      Begin Object Class=GUISlider Name=RedBSlider
          bIntSlider=True
@@ -614,7 +614,7 @@ defaultproperties
          OnKeyEvent=RedBSlider.InternalOnKeyEvent
          OnCapturedMouseMove=RedBSlider.InternalCapturedMouseMove
      End Object
-     Controls(7)=GUISlider'3SPNv32232.Menu_TabBrightskins.RedBSlider'
+     Controls(7)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.RedBSlider'
 
      Begin Object Class=GUISlider Name=BlueRSlider
          bIntSlider=True
@@ -628,7 +628,7 @@ defaultproperties
          OnKeyEvent=BlueRSlider.InternalOnKeyEvent
          OnCapturedMouseMove=BlueRSlider.InternalCapturedMouseMove
      End Object
-     Controls(8)=GUISlider'3SPNv32232.Menu_TabBrightskins.BlueRSlider'
+     Controls(8)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.BlueRSlider'
 
      Begin Object Class=GUISlider Name=BlueGSlider
          bIntSlider=True
@@ -642,7 +642,7 @@ defaultproperties
          OnKeyEvent=BlueGSlider.InternalOnKeyEvent
          OnCapturedMouseMove=BlueGSlider.InternalCapturedMouseMove
      End Object
-     Controls(9)=GUISlider'3SPNv32232.Menu_TabBrightskins.BlueGSlider'
+     Controls(9)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.BlueGSlider'
 
      Begin Object Class=GUISlider Name=BlueBSlider
          bIntSlider=True
@@ -656,7 +656,7 @@ defaultproperties
          OnKeyEvent=BlueBSlider.InternalOnKeyEvent
          OnCapturedMouseMove=BlueBSlider.InternalCapturedMouseMove
      End Object
-     Controls(10)=GUISlider'3SPNv32232.Menu_TabBrightskins.BlueBSlider'
+     Controls(10)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.BlueBSlider'
 
      Begin Object Class=GUISlider Name=YellowRSlider
          bIntSlider=True
@@ -670,7 +670,7 @@ defaultproperties
          OnKeyEvent=YellowRSlider.InternalOnKeyEvent
          OnCapturedMouseMove=YellowRSlider.InternalCapturedMouseMove
      End Object
-     Controls(25)=GUISlider'3SPNv32232.Menu_TabBrightskins.YellowRSlider'
+     Controls(25)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.YellowRSlider'
 
      Begin Object Class=GUISlider Name=YellowGSlider
          bIntSlider=True
@@ -684,7 +684,7 @@ defaultproperties
          OnKeyEvent=YellowGSlider.InternalOnKeyEvent
          OnCapturedMouseMove=YellowGSlider.InternalCapturedMouseMove
      End Object
-     Controls(26)=GUISlider'3SPNv32232.Menu_TabBrightskins.YellowGSlider'
+     Controls(26)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.YellowGSlider'
 
      Begin Object Class=GUISlider Name=YellowBSlider
          bIntSlider=True
@@ -698,7 +698,7 @@ defaultproperties
          OnKeyEvent=YellowBSlider.InternalOnKeyEvent
          OnCapturedMouseMove=YellowBSlider.InternalCapturedMouseMove
      End Object
-     Controls(27)=GUISlider'3SPNv32232.Menu_TabBrightskins.YellowBSlider'
+     Controls(27)=GUISlider'3SPN_Enhanced_A.Menu_TabBrightskins.YellowBSlider'
 
      Begin Object Class=GUILabel Name=RedRLabel
          Caption="R:"
@@ -707,7 +707,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(11)=GUILabel'3SPNv32232.Menu_TabBrightskins.RedRLabel'
+     Controls(11)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.RedRLabel'
 
      Begin Object Class=GUILabel Name=RedGLabel
          Caption="G:"
@@ -716,7 +716,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(12)=GUILabel'3SPNv32232.Menu_TabBrightskins.RedGLabel'
+     Controls(12)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.RedGLabel'
 
      Begin Object Class=GUILabel Name=RedBLabel
          Caption="B:"
@@ -725,7 +725,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(13)=GUILabel'3SPNv32232.Menu_TabBrightskins.RedBLabel'
+     Controls(13)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.RedBLabel'
 
      Begin Object Class=GUILabel Name=BlueRLabel
          Caption="R:"
@@ -734,7 +734,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(14)=GUILabel'3SPNv32232.Menu_TabBrightskins.BlueRLabel'
+     Controls(14)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.BlueRLabel'
 
      Begin Object Class=GUILabel Name=BlueGLabel
          Caption="G:"
@@ -743,7 +743,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(15)=GUILabel'3SPNv32232.Menu_TabBrightskins.BlueGLabel'
+     Controls(15)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.BlueGLabel'
 
      Begin Object Class=GUILabel Name=BlueBLabel
          Caption="B:"
@@ -752,7 +752,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(16)=GUILabel'3SPNv32232.Menu_TabBrightskins.BlueBLabel'
+     Controls(16)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.BlueBLabel'
 
      Begin Object Class=GUILabel Name=YellowRLabel
          Caption="R:"
@@ -761,7 +761,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(29)=GUILabel'3SPNv32232.Menu_TabBrightskins.YellowRLabel'
+     Controls(29)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.YellowRLabel'
 
      Begin Object Class=GUILabel Name=YellowGLabel
          Caption="G:"
@@ -770,7 +770,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(30)=GUILabel'3SPNv32232.Menu_TabBrightskins.YellowGLabel'
+     Controls(30)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.YellowGLabel'
 
      Begin Object Class=GUILabel Name=YellowBLabel
          Caption="B:"
@@ -779,7 +779,7 @@ defaultproperties
          WinLeft=0.150000
          WinHeight=20.000000
      End Object
-     Controls(31)=GUILabel'3SPNv32232.Menu_TabBrightskins.YellowBLabel'
+     Controls(31)=GUILabel'3SPN_Enhanced_A.Menu_TabBrightskins.YellowBLabel'
 
      Begin Object Class=GUIImage Name=RedColorView
          Image=Texture'InterfaceContent.Menu.ScoreBoxA'
@@ -792,7 +792,7 @@ defaultproperties
          RenderWeight=1.000000
          bNeverFocus=True
      End Object
-     Controls(17)=GUIImage'3SPNv32232.Menu_TabBrightskins.RedColorView'
+     Controls(17)=GUIImage'3SPN_Enhanced_A.Menu_TabBrightskins.RedColorView'
 
      Begin Object Class=GUIImage Name=BlueColorView
          Image=Texture'InterfaceContent.Menu.ScoreBoxA'
@@ -805,7 +805,7 @@ defaultproperties
          RenderWeight=1.000000
          bNeverFocus=True
      End Object
-     Controls(18)=GUIImage'3SPNv32232.Menu_TabBrightskins.BlueColorView'
+     Controls(18)=GUIImage'3SPN_Enhanced_A.Menu_TabBrightskins.BlueColorView'
 
      Begin Object Class=GUIImage Name=YellowColorView
          Image=Texture'InterfaceContent.Menu.ScoreBoxA'
@@ -818,7 +818,7 @@ defaultproperties
          RenderWeight=1.000000
          bNeverFocus=True
      End Object
-     Controls(32)=GUIImage'3SPNv32232.Menu_TabBrightskins.YellowColorView'
+     Controls(32)=GUIImage'3SPN_Enhanced_A.Menu_TabBrightskins.YellowColorView'
 
      Begin Object Class=GUIButton Name=DefaultButton
          Caption="Load Defaults."
@@ -830,7 +830,7 @@ defaultproperties
          OnClick=Menu_TabBrightskins.OnClick
          OnKeyEvent=DefaultButton.InternalOnKeyEvent
      End Object
-     Controls(19)=GUIButton'3SPNv32232.Menu_TabBrightskins.DefaultButton'
+     Controls(19)=GUIButton'3SPN_Enhanced_A.Menu_TabBrightskins.DefaultButton'
 
      Begin Object Class=moCheckBox Name=EnemyAllyMCheck
          Caption="Force models to Teammates and Enemies."
@@ -841,7 +841,7 @@ defaultproperties
          WinWidth=0.800000
          OnChange=Menu_TabBrightskins.OnChange
      End Object
-     Controls(20)=moCheckBox'3SPNv32232.Menu_TabBrightskins.EnemyAllyMCheck'
+     Controls(20)=moCheckBox'3SPN_Enhanced_A.Menu_TabBrightskins.EnemyAllyMCheck'
 
      Begin Object Class=moCheckBox Name=ForceRedMCheck
          Caption="Force Model"
@@ -851,7 +851,7 @@ defaultproperties
          WinWidth=0.300000
          OnChange=Menu_TabBrightskins.OnChange
      End Object
-     Controls(21)=moCheckBox'3SPNv32232.Menu_TabBrightskins.ForceRedMCheck'
+     Controls(21)=moCheckBox'3SPN_Enhanced_A.Menu_TabBrightskins.ForceRedMCheck'
 
      Begin Object Class=moCheckBox Name=ForceBlueMCheck
          Caption="Force Model"
@@ -861,7 +861,7 @@ defaultproperties
          WinWidth=0.300000
          OnChange=Menu_TabBrightskins.OnChange
      End Object
-     Controls(22)=moCheckBox'3SPNv32232.Menu_TabBrightskins.ForceBlueMCheck'
+     Controls(22)=moCheckBox'3SPN_Enhanced_A.Menu_TabBrightskins.ForceBlueMCheck'
 
      Begin Object Class=GUITreeListBox Name=RUseableModels
          bVisibleWhenEmpty=True
@@ -874,7 +874,7 @@ defaultproperties
          bScaleToParent=True
          OnChange=Menu_TabBrightskins.OnChange
      End Object
-     Controls(23)=GUITreeListBox'3SPNv32232.Menu_TabBrightskins.RUseableModels'
+     Controls(23)=GUITreeListBox'3SPN_Enhanced_A.Menu_TabBrightskins.RUseableModels'
 
      Begin Object Class=GUITreeListBox Name=BUseableModels
          bVisibleWhenEmpty=True
@@ -887,7 +887,7 @@ defaultproperties
          bScaleToParent=True
          OnChange=Menu_TabBrightskins.OnChange
      End Object
-     Controls(24)=GUITreeListBox'3SPNv32232.Menu_TabBrightskins.BUseableModels'
+     Controls(24)=GUITreeListBox'3SPN_Enhanced_A.Menu_TabBrightskins.BUseableModels'
      
      OnDraw=Menu_TabBrightskins.InternalDraw
 }

@@ -30,11 +30,11 @@ function SpawnPickup()
 
 defaultproperties
 {
-     PickupClasses(0)=Class'3SPNv32232.Misc_PickupHealth'
-     PickupClasses(1)=Class'3SPNv32232.Misc_PickupShield'
-     PickupClasses(2)=Class'3SPNv32232.Misc_PickupHealthL'
-     PickupClasses(3)=Class'3SPNv32232.Misc_PickupShieldL'
-     PickupClasses(4)=Class'3SPNv32232.Misc_PickupAdren'
+     PickupClasses(0)=Class'3SPN_Enhanced_A.Misc_PickupHealth'
+     PickupClasses(1)=Class'3SPN_Enhanced_A.Misc_PickupShield'
+     PickupClasses(2)=Class'3SPN_Enhanced_A.Misc_PickupHealthL'
+     PickupClasses(3)=Class'3SPN_Enhanced_A.Misc_PickupShieldL'
+     PickupClasses(4)=Class'3SPN_Enhanced_A.Misc_PickupAdren'
      SpawnHeight=20.000000
      bDelayedSpawn=False
      StaticMesh=StaticMesh'XGame_rc.ShieldChargerMesh'

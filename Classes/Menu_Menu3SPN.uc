@@ -27,11 +27,11 @@ function InitComponent(GUIController MyController, GUIComponent MyOwner)
 	GUITitleBar(Controls[1]).Caption = "3SPN"@class'Misc_BaseGRI'.default.Version@"Configuration";	
 		
     TabC = GUITabControl(Controls[2]);
-	InfoTab = Menu_TabInfo(TabC.AddTab("Info", "3SPNv32232.Menu_TabInfo",, "General Information", DefaultToInfoTab));
-	StatsTab = Menu_TabRanks(TabC.AddTab("Ranks", "3SPNv32232.Menu_TabRanks",, "Ranks", false));
-    MiscTab = Menu_TabMisc(TabC.AddTab("Miscellaneous", "3SPNv32232.Menu_TabMisc",, "Miscellaneous player options", !DefaultToInfoTab));
-    BSTab = Menu_TabBrightskins(TabC.AddTab("Brightskins & Models", "3SPNv32232.Menu_TabBrightskins",, "Brightskins configuration", false));
-	NamesTab = Menu_TabColoredNames(TabC.AddTab("Colored Names", "3SPNv32232.Menu_TabColoredNames",, "Colored Names", false));
+	InfoTab = Menu_TabInfo(TabC.AddTab("Info", "3SPN_Enhanced_A.Menu_TabInfo",, "General Information", DefaultToInfoTab));
+	StatsTab = Menu_TabRanks(TabC.AddTab("Ranks", "3SPN_Enhanced_A.Menu_TabRanks",, "Ranks", false));
+    MiscTab = Menu_TabMisc(TabC.AddTab("Miscellaneous", "3SPN_Enhanced_A.Menu_TabMisc",, "Miscellaneous player options", !DefaultToInfoTab));
+    BSTab = Menu_TabBrightskins(TabC.AddTab("Brightskins & Models", "3SPN_Enhanced_A.Menu_TabBrightskins",, "Brightskins configuration", false));
+	NamesTab = Menu_TabColoredNames(TabC.AddTab("Colored Names", "3SPN_Enhanced_A.Menu_TabColoredNames",, "Colored Names", false));
 
 	if(InfoTab == None)
 		log("Count not open tab Menu_TabInfo", '3SPN');
@@ -46,14 +46,14 @@ function InitComponent(GUIController MyController, GUIComponent MyOwner)
 	
 	if(bAdmin)
 	{
-		TournamentAdminTab = Menu_TabTournamentAdmin(TabC.AddTab("Tournament Admin", "3SPNv32232.Menu_TabTournamentAdmin",, "Tournament", false));
+		TournamentAdminTab = Menu_TabTournamentAdmin(TabC.AddTab("Tournament Admin", "3SPN_Enhanced_A.Menu_TabTournamentAdmin",, "Tournament", false));
  
 		if(PlayerOwner().Level.GRI!=None)
 		{
 			if(PlayerOwner().Level.GRI.bTeamGame)
-				AdminTab = Menu_TabTAMAdmin(TabC.AddTab("Admin", "3SPNv32232.Menu_TabTAMAdmin",, "Admin/Server configuration", false));
+				AdminTab = Menu_TabTAMAdmin(TabC.AddTab("Admin", "3SPN_Enhanced_A.Menu_TabTAMAdmin",, "Admin/Server configuration", false));
 			else
-				AdminTab = Menu_TabAMAdmin(TabC.AddTab("Admin", "3SPNv32232.Menu_TabAMAdmin",, "Admin/Server configuration", false));
+				AdminTab = Menu_TabAMAdmin(TabC.AddTab("Admin", "3SPN_Enhanced_A.Menu_TabAMAdmin",, "Admin/Server configuration", false));
 		}
 		
 		if(AdminTab == None)
@@ -111,7 +111,7 @@ defaultproperties
          WinHeight=0.800000
          RenderWeight=0.000003
      End Object
-     Controls(0)=GUIImage'3SPNv32232.Menu_Menu3SPN.MenuBack'
+     Controls(0)=GUIImage'3SPN_Enhanced_A.Menu_Menu3SPN.MenuBack'
 
      Begin Object Class=GUITitleBar Name=MenuTitle
          Effect=FinalBlend'InterfaceContent.Menu.CO_Final'
@@ -121,7 +121,7 @@ defaultproperties
          bBoundToParent=True
          bScaleToParent=True
      End Object
-     Controls(1)=GUITitleBar'3SPNv32232.Menu_Menu3SPN.MenuTitle'
+     Controls(1)=GUITitleBar'3SPN_Enhanced_A.Menu_Menu3SPN.MenuTitle'
 
      Begin Object Class=GUITabControl Name=Tabs
          bDockPanels=True
@@ -135,7 +135,7 @@ defaultproperties
          bAcceptsInput=True
          OnActivate=Tabs.InternalOnActivate
      End Object
-     Controls(2)=GUITabControl'3SPNv32232.Menu_Menu3SPN.Tabs'
+     Controls(2)=GUITabControl'3SPN_Enhanced_A.Menu_Menu3SPN.Tabs'
  
      WinTop=0.089000
      WinLeft=0.100000

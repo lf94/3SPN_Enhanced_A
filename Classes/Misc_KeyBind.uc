@@ -2,7 +2,7 @@ class Misc_KeyBind extends GUIUserKeyBinding;
 
 defaultproperties
 {
-     KeyData(0)=(KeyLabel="3SPNv32232",bIsSection=True)
+     KeyData(0)=(KeyLabel="3SPN_Enhanced_A",bIsSection=True)
      KeyData(1)=(Alias="Menu3SPN",KeyLabel="Menu")
      KeyData(2)=(Alias="CallTimeout",KeyLabel="Call Timeout")
      KeyData(3)=(Alias="UseBooster",KeyLabel="Use Booster")

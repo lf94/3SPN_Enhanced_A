@@ -37,7 +37,7 @@ defaultproperties
 {
 	YouAreGit="YOU GIT!"
 	PlayerIsGit="IS A GIT!"
-	GitSound=Sound'3SPNv32232.Sounds.Git'
+	GitSound=Sound'3SPN_Enhanced_A.Sounds.Git'
 	bIsUnique=True
 	bFadeMessage=True
 	Lifetime=5

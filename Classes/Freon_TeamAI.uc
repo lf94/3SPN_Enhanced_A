@@ -2,5 +2,5 @@ class Freon_TeamAI extends TeamAI;
 
 defaultproperties
 {
-     SquadType=Class'3SPNv32232.Freon_SquadAI'
+     SquadType=Class'3SPN_Enhanced_A.Freon_SquadAI'
 }

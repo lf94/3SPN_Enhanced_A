@@ -37,7 +37,7 @@ static simulated function ClientReceive(
 
 defaultproperties
 {
-     IncineratorSound=Sound'3SPNv32232.Sounds.Incinerator'
+     IncineratorSound=Sound'3SPN_Enhanced_A.Sounds.Incinerator'
      YouAreIncinerator="YOU ARE AN INCINERATOR!"
      PlayerIsIncinerator="IS AN INCINERATOR!"
      bIsUnique=True

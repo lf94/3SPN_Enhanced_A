@@ -151,7 +151,7 @@ defaultproperties
          WinHeight=1.000000
          bNeverFocus=True
      End Object
-     Controls(0)=GUIImage'3SPNv32232.Menu_TabAMAdmin.TabBackground'
+     Controls(0)=GUIImage'3SPN_Enhanced_A.Menu_TabAMAdmin.TabBackground'
 
      Begin Object Class=GUIButton Name=SaveButton
          Caption="Save"
@@ -164,7 +164,7 @@ defaultproperties
          OnClick=Menu_TabAMAdmin.OnClick
          OnKeyEvent=SaveButton.InternalOnKeyEvent
      End Object
-     Controls(1)=GUIButton'3SPNv32232.Menu_TabAMAdmin.SaveButton'
+     Controls(1)=GUIButton'3SPN_Enhanced_A.Menu_TabAMAdmin.SaveButton'
 
      Begin Object Class=GUIButton Name=LoadButton
          Caption="Load Map"
@@ -177,7 +177,7 @@ defaultproperties
          OnClick=Menu_TabAMAdmin.OnClick
          OnKeyEvent=LoadButton.InternalOnKeyEvent
      End Object
-     Controls(2)=GUIButton'3SPNv32232.Menu_TabAMAdmin.LoadButton'
+     Controls(2)=GUIButton'3SPN_Enhanced_A.Menu_TabAMAdmin.LoadButton'
 
      Begin Object Class=moComboBox Name=MapBox
          CaptionWidth=0.200000
@@ -188,7 +188,7 @@ defaultproperties
          WinWidth=0.600000
          WinHeight=0.037500
      End Object
-     Controls(3)=moComboBox'3SPNv32232.Menu_TabAMAdmin.MapBox'
+     Controls(3)=moComboBox'3SPN_Enhanced_A.Menu_TabAMAdmin.MapBox'
 
      Begin Object Class=moEditBox Name=HealthBox
          CaptionWidth=0.600000
@@ -200,7 +200,7 @@ defaultproperties
          WinHeight=0.060000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(4)=moEditBox'3SPNv32232.Menu_TabAMAdmin.HealthBox'
+     Controls(4)=moEditBox'3SPN_Enhanced_A.Menu_TabAMAdmin.HealthBox'
 
      Begin Object Class=moEditBox Name=ArmorBox
          CaptionWidth=0.600000
@@ -212,7 +212,7 @@ defaultproperties
          WinHeight=0.060000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(5)=moEditBox'3SPNv32232.Menu_TabAMAdmin.ArmorBox'
+     Controls(5)=moEditBox'3SPN_Enhanced_A.Menu_TabAMAdmin.ArmorBox'
 
      Begin Object Class=moCheckBox Name=ChallengeCheck
          Caption="Challenge Mode"
@@ -222,7 +222,7 @@ defaultproperties
          WinWidth=0.400000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(6)=moCheckBox'3SPNv32232.Menu_TabAMAdmin.ChallengeCheck'
+     Controls(6)=moCheckBox'3SPN_Enhanced_A.Menu_TabAMAdmin.ChallengeCheck'
 
      Begin Object Class=moEditBox Name=MaxHealthBox
          CaptionWidth=0.600000
@@ -234,7 +234,7 @@ defaultproperties
          WinHeight=0.060000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(7)=moEditBox'3SPNv32232.Menu_TabAMAdmin.MaxHealthBox'
+     Controls(7)=moEditBox'3SPN_Enhanced_A.Menu_TabAMAdmin.MaxHealthBox'
 
      Begin Object Class=moEditBox Name=MinsBox
          CaptionWidth=0.600000
@@ -246,7 +246,7 @@ defaultproperties
          WinHeight=0.060000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(8)=moEditBox'3SPNv32232.Menu_TabAMAdmin.MinsBox'
+     Controls(8)=moEditBox'3SPN_Enhanced_A.Menu_TabAMAdmin.MinsBox'
 
      Begin Object Class=moEditBox Name=OTDamBox
          CaptionWidth=0.600000
@@ -258,7 +258,7 @@ defaultproperties
          WinHeight=0.060000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(9)=moEditBox'3SPNv32232.Menu_TabAMAdmin.OTDamBox'
+     Controls(9)=moEditBox'3SPN_Enhanced_A.Menu_TabAMAdmin.OTDamBox'
 
      Begin Object Class=moEditBox Name=OTIntBox
          CaptionWidth=0.600000
@@ -270,7 +270,7 @@ defaultproperties
          WinHeight=0.060000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(10)=moEditBox'3SPNv32232.Menu_TabAMAdmin.OTIntBox'
+     Controls(10)=moEditBox'3SPN_Enhanced_A.Menu_TabAMAdmin.OTIntBox'
 
      Begin Object Class=moCheckBox Name=SpeedCheck
          Caption="Disable Speed"
@@ -280,7 +280,7 @@ defaultproperties
          WinWidth=0.400000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(11)=moCheckBox'3SPNv32232.Menu_TabAMAdmin.SpeedCheck'
+     Controls(11)=moCheckBox'3SPN_Enhanced_A.Menu_TabAMAdmin.SpeedCheck'
 
      Begin Object Class=moCheckBox Name=InvisCheck
          Caption="Disable Invis"
@@ -290,7 +290,7 @@ defaultproperties
          WinWidth=0.400000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(12)=moCheckBox'3SPNv32232.Menu_TabAMAdmin.InvisCheck'
+     Controls(12)=moCheckBox'3SPN_Enhanced_A.Menu_TabAMAdmin.InvisCheck'
 
      Begin Object Class=moCheckBox Name=BerserkCheck
          Caption="Disable Berserk"
@@ -300,7 +300,7 @@ defaultproperties
          WinWidth=0.400000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(13)=moCheckBox'3SPNv32232.Menu_TabAMAdmin.BerserkCheck'
+     Controls(13)=moCheckBox'3SPN_Enhanced_A.Menu_TabAMAdmin.BerserkCheck'
 
      Begin Object Class=moCheckBox Name=BoosterCheck
          Caption="Disable Booster"
@@ -310,7 +310,7 @@ defaultproperties
          WinWidth=0.400000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(14)=moCheckBox'3SPNv32232.Menu_TabAMAdmin.BoosterCheck'
+     Controls(14)=moCheckBox'3SPN_Enhanced_A.Menu_TabAMAdmin.BoosterCheck'
 
      Begin Object Class=moCheckBox Name=KickCheck
          Caption="Kick Excessive Campers"
@@ -320,7 +320,7 @@ defaultproperties
          WinWidth=0.400000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(15)=moCheckBox'3SPNv32232.Menu_TabAMAdmin.KickCheck'
+     Controls(15)=moCheckBox'3SPN_Enhanced_A.Menu_TabAMAdmin.KickCheck'
 
      Begin Object Class=moEditBox Name=CampBox
          CaptionWidth=0.600000
@@ -332,7 +332,7 @@ defaultproperties
          WinHeight=0.060000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(16)=moEditBox'3SPNv32232.Menu_TabAMAdmin.CampBox'
+     Controls(16)=moEditBox'3SPN_Enhanced_A.Menu_TabAMAdmin.CampBox'
 
      Begin Object Class=moCheckBox Name=ForceCheck
          Caption="Force Ready"
@@ -342,7 +342,7 @@ defaultproperties
          WinWidth=0.400000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(17)=moCheckBox'3SPNv32232.Menu_TabAMAdmin.ForceCheck'
+     Controls(17)=moCheckBox'3SPN_Enhanced_A.Menu_TabAMAdmin.ForceCheck'
 
      Begin Object Class=moCheckBox Name=PickupCheck
          Caption="Random Pickups"
@@ -352,6 +352,6 @@ defaultproperties
          WinWidth=0.400000
          OnChange=Menu_TabAMAdmin.OnChange
      End Object
-     Controls(18)=moCheckBox'3SPNv32232.Menu_TabAMAdmin.PickupCheck'
+     Controls(18)=moCheckBox'3SPN_Enhanced_A.Menu_TabAMAdmin.PickupCheck'
 
 }

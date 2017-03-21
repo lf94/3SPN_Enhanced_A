@@ -38,7 +38,7 @@ static simulated function ClientReceive(
 
 defaultproperties
 {
-     HotSauceSound=Sound'3SPNv32232.Sounds.Hotsauce'
+     HotSauceSound=Sound'3SPN_Enhanced_A.Sounds.Hotsauce'
      YouAreHotSauce="YOU ARE HOT SAUCE!"
      PlayerIsHotSauce="IS HOT SAUCE!"
      bIsUnique=True

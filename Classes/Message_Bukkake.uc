@@ -38,7 +38,7 @@ defaultproperties
 {
   YouGaveBukkake="YOU GAVE A BUKKAKE!"
   PlayerGaveBukkake="SPLASHED A BUKKAKE!"
-  BukkakeSound=Sound'3SPNv32232.Sounds.Bukkake'
+  BukkakeSound=Sound'3SPN_Enhanced_A.Sounds.Bukkake'
   bIsUnique=True
   bFadeMessage=True
   Lifetime=5

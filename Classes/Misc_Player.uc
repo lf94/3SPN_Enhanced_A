@@ -604,7 +604,7 @@ simulated function InitInputSystem()
 	C = Level.GetLocalPlayerController();
 	if(C != None)
 	{
-		C.Player.InteractionMaster.AddInteraction("3SPNv32232.Menu_Interaction", C.Player);
+		C.Player.InteractionMaster.AddInteraction("3SPN_Enhanced_A.Menu_Interaction", C.Player);
 	}
 }
 
@@ -1032,9 +1032,9 @@ function bool CanDoCombo(class<Combo> ComboClass)
 function ServerDoCombo(class<Combo> ComboClass)
 {
     if(class<ComboBerserk>(ComboClass) != None)
-        ComboClass = class<Combo>(DynamicLoadObject("3SPNv32232.Misc_ComboBerserk", class'Class'));
+        ComboClass = class<Combo>(DynamicLoadObject("3SPN_Enhanced_A.Misc_ComboBerserk", class'Class'));
     else if(class<ComboSpeed>(ComboClass) != None && class<Misc_ComboSpeed>(ComboClass) == None)
-        ComboClass = class<Combo>(DynamicLoadObject("3SPNv32232.Misc_ComboSpeed", class'Class'));
+        ComboClass = class<Combo>(DynamicLoadObject("3SPN_Enhanced_A.Misc_ComboSpeed", class'Class'));
 
     if(Adrenaline < ComboClass.default.AdrenalineCost)
         return;
@@ -1297,7 +1297,7 @@ exec function Menu3SPN()
 	r.Pitch = 0;
 	SetRotation(r);
 
-	ClientOpenMenu("3SPNv32232.Menu_Menu3SPN");
+	ClientOpenMenu("3SPN_Enhanced_A.Menu_Menu3SPN");
 }
 
 exec function ToggleTeamInfo()
@@ -1988,14 +1988,14 @@ defaultproperties
 	BlueAllyModel="Jakob"
 	bAnnounceOverkill=True
 	bUseHitsounds=True
-	SoundHit=Sound'3SPNv32232.Sounds.HitSound'
+	SoundHit=Sound'3SPN_Enhanced_A.Sounds.HitSound'
 	SoundHitFriendly=Sound'MenuSounds.denied1'
 	SoundHitVolume=0.600000
-	SoundAlone=Sound'3SPNv32232.Sounds.alone'
+	SoundAlone=Sound'3SPN_Enhanced_A.Sounds.alone'
 	SoundAloneVolume=1.000000
-  SoundSpawnProtection=Sound'3SPNv32232.Sounds.Bleep'
+  SoundSpawnProtection=Sound'3SPN_Enhanced_A.Sounds.Bleep'
 	SoundUnlock=Sound'NewWeaponSounds.Newclickgrenade'
-	PlayerReplicationInfoClass=Class'3SPNv32232.Misc_PRI'
+	PlayerReplicationInfoClass=Class'3SPN_Enhanced_A.Misc_PRI'
 	Adrenaline=0.100000
 	ShowInitialMenu=1 /* disabling initial menu so that the popup does not interfere with agreement dialogs */
 	Menu3SPNKey=IK_F7

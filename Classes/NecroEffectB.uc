@@ -28,6 +28,6 @@ defaultproperties
      Physics=PHYS_Trailer
      RemoteRole=ROLE_SimulatedProxy
      LifeSpan=3.000000
-     Skins(0)=Texture'3SPNv32232.Textures.SmokeTex'
+     Skins(0)=Texture'3SPN_Enhanced_A.Textures.SmokeTex'
      Style=STY_Additive
 }

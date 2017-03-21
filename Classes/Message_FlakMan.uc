@@ -37,7 +37,7 @@ defaultproperties
 {
     YouAreFlakMan="YOU ARE A FLAKMAN!"
     PlayerIsFlakMan="IS A FLAKMAN!"
-    FlakManSound=Sound'3SPNv32232.Sounds.FlakMan'
+    FlakManSound=Sound'3SPN_Enhanced_A.Sounds.FlakMan'
     bIsUnique=True
     bFadeMessage=True
     Lifetime=5

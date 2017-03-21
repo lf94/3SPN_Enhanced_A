@@ -37,7 +37,7 @@ defaultproperties
 {
 	YouAreRocketMan="YOU ARE A ROCKETMAN!"
 	PlayerIsRocketMan="IS A ROCKETMAN!"
-	RocketManSound=Sound'3SPNv32232.Sounds.RocketMan'
+	RocketManSound=Sound'3SPN_Enhanced_A.Sounds.RocketMan'
 	bIsUnique=True
 	bFadeMessage=True
 	Lifetime=5

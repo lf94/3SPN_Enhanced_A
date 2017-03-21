@@ -931,5 +931,5 @@ simulated event DrawScoreBoard(Canvas C)
 defaultproperties
 {
      Box=Texture'Engine.WhiteSquareTexture'
-     BaseTex=Texture'3SPNv32232.textures.ScoreBoard_old'
+     BaseTex=Texture'3SPN_Enhanced_A.textures.ScoreBoard_old'
 }

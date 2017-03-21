@@ -59,14 +59,14 @@ static event string GetDescriptionText(string PropName)
 function UnrealTeamInfo GetBlueTeam(int TeamBots)
 {
     if(BlueTeamName != "")
-        BlueTeamName = "3SPNv32232.TAM_TeamInfoBlue";
+        BlueTeamName = "3SPN_Enhanced_A.TAM_TeamInfoBlue";
     return Super.GetBlueTeam(TeamBots);
 }
 
 function UnrealTeamInfo GetRedTeam(int TeamBots)
 {
     if(RedTeamName != "")
-        RedTeamName = "3SPNv32232.TAM_TeamInfoRed";
+        RedTeamName = "3SPN_Enhanced_A.TAM_TeamInfoRed";
     return Super.GetRedTeam(TeamBots);
 }
 
@@ -265,9 +265,9 @@ function SetupPlayer(Pawn P)
 function string SwapDefaultCombo(string ComboName)
 {
     if(ComboName ~= "xGame.ComboSpeed")
-        return "3SPNv32232.Misc_ComboSpeed";
+        return "3SPN_Enhanced_A.Misc_ComboSpeed";
     else if(ComboName ~= "xGame.ComboBerserk")
-        return "3SPNv32232.Misc_ComboBerserk";
+        return "3SPN_Enhanced_A.Misc_ComboBerserk";
 
     return ComboName;
 }
@@ -327,8 +327,8 @@ defaultproperties
      bForceRespawn=True
      //SpawnProtectionTime=0.000000
      MaxLives=1
-     GameReplicationInfoClass=Class'3SPNv32232.TAM_GRI'
+     GameReplicationInfoClass=Class'3SPN_Enhanced_A.TAM_GRI'
      GameName="Team ArenaMaster v3"
      Acronym="TAM"
-     MapListType="3SPNv32232.MapListTeamArenaMaster";
+     MapListType="3SPN_Enhanced_A.MapListTeamArenaMaster";
 }

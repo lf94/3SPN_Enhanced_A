@@ -1321,8 +1321,8 @@ function NewDraw2DLocationDot(Canvas C, vector Loc, int CenterX, int CenterY, in
 defaultproperties
 {
      TeamTex=Texture'HUDContent.Generic.HUD'
-     Hudzaxis=Texture'3SPNv32232.textures.Hudzaxis'
-     TrackedPlayer=Texture'3SPNv32232.textures.chair'
+     Hudzaxis=Texture'3SPN_Enhanced_A.textures.Hudzaxis'
+     TrackedPlayer=Texture'3SPN_Enhanced_A.textures.chair'
      FullHealthColor=(B=200,G=100,A=255)
      NameColor=(B=200,G=200,R=200,A=255)
      LocationColor=(G=130,R=175,A=255)

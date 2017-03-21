@@ -903,9 +903,9 @@ function bool AddBot(optional string botName)
 function string SwapDefaultCombo(string ComboName)
 {
     if(ComboName ~= "xGame.ComboSpeed")
-        return "3SPNv32232.Misc_ComboSpeed";
+        return "3SPN_Enhanced_A.Misc_ComboSpeed";
     else if(ComboName ~= "xGame.ComboBerserk")
-        return "3SPNv32232.Misc_ComboBerserk";
+        return "3SPN_Enhanced_A.Misc_ComboBerserk";
 
     return ComboName;
 }
@@ -1706,28 +1706,28 @@ defaultproperties
 	RocketAmmo=12
 	LightningAmmo=10
 	ADR_MinorError=-5.000000
-	LocalStatsScreenClass=Class'3SPNv32232.Misc_StatBoard'
-	DefaultPlayerClassName="3SPNv32232.Misc_Pawn"
-	ScoreBoardType="3SPNv32232.AM_Scoreboard"
-	HUDType="3SPNv32232.AM_HUD"
+	LocalStatsScreenClass=Class'3SPN_Enhanced_A.Misc_StatBoard'
+	DefaultPlayerClassName="3SPN_Enhanced_A.Misc_Pawn"
+	ScoreBoardType="3SPN_Enhanced_A.AM_Scoreboard"
+	HUDType="3SPN_Enhanced_A.AM_HUD"
 	GoalScore=5
 	MaxLives=1
 	TimeLimit=0
-	MutatorClass="3SPNv32232.TAM_Mutator"
-	PlayerControllerClassName="3SPNv32232.Misc_Player"
-	GameReplicationInfoClass=Class'3SPNv32232.TAM_GRI'
+	MutatorClass="3SPN_Enhanced_A.TAM_Mutator"
+	PlayerControllerClassName="3SPN_Enhanced_A.Misc_Player"
+	GameReplicationInfoClass=Class'3SPN_Enhanced_A.TAM_GRI'
 	GameName="ArenaMaster v3"
 	Description="One life per round. Don't waste it"
 	Acronym="AM"
 	LockTime=4
 	EnableNewNet=True
 	//SpawnProtectionTime=0.000000
-	DeathMessageClass=class'3SPNv32232.Misc_DeathMessage';
-	LoginMenuClass="3SPNv32232.Menu_TAMLoginMenu"
+	DeathMessageClass=class'3SPN_Enhanced_A.Misc_DeathMessage';
+	LoginMenuClass="3SPN_Enhanced_A.Menu_TAMLoginMenu"
 	//ServerLinkEnabled=False
-	OvertimeSound=Sound'3SPNv32232.Sounds.Overtime'
+	OvertimeSound=Sound'3SPN_Enhanced_A.Sounds.Overtime'
 	ShowServerName=True
 	FlagTextureEnabled=True
 	FlagTextureShowAcronym=True
-	MapListType="3SPNv32232.MapListArenaMaster";
+	MapListType="3SPN_Enhanced_A.MapListArenaMaster";
 }

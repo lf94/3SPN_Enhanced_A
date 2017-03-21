@@ -38,7 +38,7 @@ defaultproperties
 {
   YouAreCombowhore="YOU ARE A COMBOWHORE!"
   PlayerIsCombowhore="IS A COMBOWHORE!"
-  CombowhoreSound=Sound'3SPNv32232.Sounds.Combowhore'
+  CombowhoreSound=Sound'3SPN_Enhanced_A.Sounds.Combowhore'
   bIsUnique=True
   bFadeMessage=True
   Lifetime=5

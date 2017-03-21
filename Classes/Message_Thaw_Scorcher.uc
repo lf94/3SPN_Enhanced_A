@@ -36,7 +36,7 @@ static simulated function ClientReceive(
 
 defaultproperties
 {
-     ScorcherSound=Sound'3SPNv32232.Sounds.scorcher'
+     ScorcherSound=Sound'3SPN_Enhanced_A.Sounds.scorcher'
      YouAreScorcher="YOU ARE A SCORCHER!"
      PlayerIsScorcher="IS A SCORCHER!"
      bIsUnique=True

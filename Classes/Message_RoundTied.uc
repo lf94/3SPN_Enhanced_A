@@ -31,7 +31,7 @@ static simulated function ClientReceive(
 
 defaultproperties
 {
-//     RoundTiedSound=Sound'3SPNv32232.Sounds.RoundTied'
+//     RoundTiedSound=Sound'3SPN_Enhanced_A.Sounds.RoundTied'
      RoundTiedString="ROUND ENDED IN A TIE!"
      bIsUnique=True
      bFadeMessage=True

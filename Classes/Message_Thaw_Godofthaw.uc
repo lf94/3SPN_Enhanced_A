@@ -37,7 +37,7 @@ defaultproperties
 {
 	YouAreGodOfThaw="GOD OF THAW!"
 	PlayerIsGodOfThaw="IS THE GOD OF THAW!"
-	GodOfThawSound=Sound'3SPNv32232.Sounds.GodOfThaw'
+	GodOfThawSound=Sound'3SPN_Enhanced_A.Sounds.GodOfThaw'
 	bIsUnique=True
 	bFadeMessage=True
 	Lifetime=5

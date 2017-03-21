@@ -148,14 +148,14 @@ function AwardPlayerThaw(PlayerReplicationInfo PRI, float UnthawAmount)
 	xPRI = Freon_PRI(PRI);
 	if(xPRI == None) return;
 	
-	xPRI.PartialThaw += (UnthawAmount * xGRI.ThawPointScale);
+	xPRI.PartialThaw += UnthawAmount;
 	
 	// Figure out if we've earned a whole thaw point.
 	WholeThaw = xPRI.PartialThaw / 100.0f;
 	if(WholeThaw >= 1.0)
 	{
 		xPRI.Thaws += 1;
-		xPRI.Score += 1;
+		xPRI.Score += (1 * xGRI.ThawPointScale);
 		
 		// Put the remainder of the thaw towards our next point!
 		xPRI.PartialThaw = WholeThaw - 1.0f;
@@ -313,7 +313,7 @@ defaultproperties
 {
      Team=255
      ThawSound=Sound'WeaponSounds.BaseGunTech.BGrenfloor1'
-     TouchSound=Sound'3SPNv32232.Sounds.Touch'
+     TouchSound=Sound'3SPN_Enhanced_A.Sounds.Touch'
      ThawSpeed=5.000000
      AutoThawTime=60.000000
      FastThawModifier=1.500000
