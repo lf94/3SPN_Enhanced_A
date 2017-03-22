@@ -140,7 +140,7 @@ function AwardPlayerThaw(PlayerReplicationInfo PRI, float UnthawAmount)
 {
 	local Freon_GRI xGRI;
 	local Freon_PRI xPRI;
-	local float WholeThaw;
+	local float ThawPoint;
 	
 	xGRI = Freon_GRI(Level.GRI);
 	if(xGRI == None) return;
@@ -148,18 +148,12 @@ function AwardPlayerThaw(PlayerReplicationInfo PRI, float UnthawAmount)
 	xPRI = Freon_PRI(PRI);
 	if(xPRI == None) return;
 	
-	xPRI.PartialThaw += UnthawAmount;
+	// Example: Giving player 25 health? You gain 0.25 thaw points.
+	ThawPoint = UnthawAmount / 100.0f;
 	
-	// Figure out if we've earned a whole thaw point.
-	WholeThaw = xPRI.PartialThaw / 100.0f;
-	if(WholeThaw >= 1.0)
-	{
-		xPRI.Thaws += 1;
-		xPRI.Score += (1 * xGRI.ThawPointScale);
-		
-		// Put the remainder of the thaw towards our next point!
-		xPRI.PartialThaw = WholeThaw - 1.0f;
-	}
+	// Add the ThawPoint right away to our overall thaw and score points.
+	xPRI.Thaws += ThawPoint;
+	xPRI.Score += (ThawPoint * xGRI.ThawPointScale);
 	
 }
 
