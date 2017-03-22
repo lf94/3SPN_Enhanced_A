@@ -3,8 +3,7 @@ class Freon_PRI extends Misc_PRI;
 var Color FrozenColor;
 var localized string FrozenString;
 
-var float PartialThaw;
-var int Thaws;
+var float Thaws;
 var int Git;
 
 simulated function string GetLocationName()
