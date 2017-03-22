@@ -149,11 +149,11 @@ function AwardPlayerThaw(PlayerReplicationInfo PRI, float UnthawAmount)
 	if(xPRI == None) return;
 	
 	// Example: Giving player 25 health? You gain 0.25 thaw points.
-	ThawPoint = UnthawAmount / 100.0f;
+	ThawPoint = UnthawAmount;
 	
 	// Add the ThawPoint right away to our overall thaw and score points.
 	xPRI.Thaws += ThawPoint;
-	xPRI.Score += (ThawPoint * xGRI.ThawPointScale);
+	xPRI.Score += ((ThawPoint / 100.0f) * xGRI.ThawPointScale);
 	
 }
 
@@ -264,7 +264,7 @@ state PawnFrozen
 				AverageDistance += Distance;
 				
 				UnthawAmount = calculateHealthGain(Distance, ThawSpeed, 1.0f);
-				AwardPlayerThaw(Toucher[i].PlayerReplicationInfo, UnthawAmount);
+				AwardPlayerThaw(Toucher[i].PlayerReplicationInfo, UnthawAmount / Toucher.Length);
             }
 
             AverageDistance /= i;

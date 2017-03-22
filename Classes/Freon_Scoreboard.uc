@@ -419,7 +419,7 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
 	{
 		C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -2);
 		C.DrawColor = HUDClass.default.WhiteColor * 0.7;
-		name = string(xPRI.Thaws);
+		name = string(xPRI.Thaws / 100.0f);
 		C.StrLen(name, XL, YL);
 		C.SetPos(BarX + ThawsX -(XL * 0.5), BarY + ThawsY);
 		C.DrawText(name);
@@ -463,7 +463,7 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
 	C.DrawText(name);
 }
 
-simulated function DrawPlayerTotalsBarFreon(Canvas C, int BarX, int BarY, int BarW, int BarH, string TeamName, Color backgroundCol, int Score, int Kills, int Thaws, int Ping, float PPR)
+simulated function DrawPlayerTotalsBarFreon(Canvas C, int BarX, int BarY, int BarW, int BarH, string TeamName, Color backgroundCol, int Score, int Kills, float Thaws, int Ping, float PPR)
 {
 	local int NameX, NameY;
 	local int ScoreX, ScoreY;
@@ -518,7 +518,7 @@ simulated function DrawPlayerTotalsBarFreon(Canvas C, int BarX, int BarY, int Ba
 
 	// THAWS
 
-	name = string(Thaws);
+	name = string(Thaws / 100.0f);
 	C.StrLen(name, XL, YL);
 	C.SetPos(BarX + ThawsX - XL * 0.5, BarY + ThawsY);
 	C.DrawText(name);
@@ -570,7 +570,7 @@ simulated function DrawTeamBoard(Canvas C, int BoxX, int BoxY, int BoxW, string 
 	
 	local int TeamScore;
 	local int TeamKills;
-	local int TeamThaws;
+	local float TeamThaws;
 	local int TeamPing;
 	
 	local float TeamAvgPPR;
