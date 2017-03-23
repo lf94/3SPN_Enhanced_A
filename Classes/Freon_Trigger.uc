@@ -132,8 +132,8 @@ static function float calculateHealthGain(float Distance, float ThawSpeed, float
 {
 	if(Distance <= 100.0)
 		return (100.0 / Max(0.0001,ThawSpeed)) * 0.5 * Touchers;
-	else
-		return (100.0 / Max(0.0001,ThawSpeed)) * 0.25 * Touchers;
+	
+	return 0;
 }
 
 function AwardPlayerThaw(PlayerReplicationInfo PRI, float UnthawAmount)
@@ -149,17 +149,7 @@ function AwardPlayerThaw(PlayerReplicationInfo PRI, float UnthawAmount)
 	if(xPRI == None) return;
 	
 	xPRI.PartialThaw += UnthawAmount;
-	
-	// Figure out if we've earned a whole thaw point.
-	WholeThaw = xPRI.PartialThaw / 100.0f;
-	if(WholeThaw >= 1.0)
-	{
-		xPRI.Thaws += 1;
-		xPRI.Score += (1 * xGRI.ThawPointScale);
-		
-		// Put the remainder of the thaw towards our next point!
-		xPRI.PartialThaw = WholeThaw - 1.0f;
-	}
+	xPRI.Score += ((ThawPoint / 100.0f) * xGRI.ThawPointScale);
 	
 }
 
@@ -194,7 +184,7 @@ function Timer()
 			Distance = VSize(PawnOwner.Location - Toucher[i].Location);
             AverageDistance += Distance;
 			
-			UnthawAmount = calculateHealthGain(Distance, ThawSpeed, 1.0f);
+			//UnthawAmount = calculateHealthGain(Distance, ThawSpeed, 1.0f);
 			//AwardPlayerThaw(Toucher[i].PlayerReplicationInfo, UnthawAmount);
         }
 

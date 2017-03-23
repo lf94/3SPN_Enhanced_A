@@ -420,6 +420,7 @@ function PlayerThawedByTouch(Freon_Pawn Thawed, array<Freon_Pawn> Thawers, optio
         xPRI = Freon_PRI(Thawers[i].PlayerReplicationInfo);
         if (xPRI != None)
         {
+			xPRI.Thaws += 1;
             Message = None;
             switch(xPRI.Thaws)
             {

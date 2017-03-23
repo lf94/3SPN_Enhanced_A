@@ -419,7 +419,7 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
 	{
 		C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -2);
 		C.DrawColor = HUDClass.default.WhiteColor * 0.7;
-		name = string(float(xPRI.Thaws) + (xPRI.PartialThaw / 100.0f));
+		name = string(int(xPRI.Thaws));
 		C.StrLen(name, XL, YL);
 		C.SetPos(BarX + ThawsX -(XL * 0.5), BarY + ThawsY);
 		C.DrawText(name);
@@ -518,7 +518,7 @@ simulated function DrawPlayerTotalsBarFreon(Canvas C, int BarX, int BarY, int Ba
 
 	// THAWS
 
-	name = string(Thaws);
+	name = string(int(Thaws));
 	C.StrLen(name, XL, YL);
 	C.SetPos(BarX + ThawsX - XL * 0.5, BarY + ThawsY);
 	C.DrawText(name);
