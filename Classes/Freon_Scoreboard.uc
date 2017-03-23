@@ -518,7 +518,7 @@ simulated function DrawPlayerTotalsBarFreon(Canvas C, int BarX, int BarY, int Ba
 
 	// THAWS
 
-	name = string(int(Thaws));
+	name = string(Thaws);
 	C.StrLen(name, XL, YL);
 	C.SetPos(BarX + ThawsX - XL * 0.5, BarY + ThawsY);
 	C.DrawText(name);
