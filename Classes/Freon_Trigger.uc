@@ -140,16 +140,15 @@ function AwardPlayerThaw(PlayerReplicationInfo PRI, float UnthawAmount)
 {
 	local Freon_GRI xGRI;
 	local Freon_PRI xPRI;
-	local float WholeThaw;
 	
 	xGRI = Freon_GRI(Level.GRI);
 	if(xGRI == None) return;
 	
 	xPRI = Freon_PRI(PRI);
 	if(xPRI == None) return;
+
 	
-	xPRI.PartialThaw += UnthawAmount;
-	xPRI.Score += ((ThawPoint / 100.0f) * xGRI.ThawPointScale);
+	xPRI.Score += ((UnthawAmount / 100.0f) * xGRI.ThawPointScale);
 	
 }
 
@@ -181,18 +180,16 @@ function Timer()
             else
                 Touchers += 1.0;
 
-			Distance = VSize(PawnOwner.Location - Toucher[i].Location);
+	    Distance = VSize(PawnOwner.Location - Toucher[i].Location);
             AverageDistance += Distance;
 			
-			//UnthawAmount = calculateHealthGain(Distance, ThawSpeed, 1.0f);
-			//AwardPlayerThaw(Toucher[i].PlayerReplicationInfo, UnthawAmount);
         }
 
         if(PawnOwner.Health < MostHealth)
         {
             AverageDistance /= i;
 			
-			HealthGain = calculateHealthGain(AverageDistance, ThawSpeed, Touchers);
+	    HealthGain = calculateHealthGain(AverageDistance, ThawSpeed, Touchers);
             PawnOwner.GiveHealth(HealthGain, MostHealth);
         }
     }        
