@@ -286,14 +286,6 @@ simulated function DrawTeamScores(Canvas C, int BoxX, int BoxY, int BoxW, int Bo
       C.DrawText(name);
   }
   
-  // SEPARATOR
-
-    C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -1);
-    C.DrawColor = HUDClass.default.WhiteColor;
-    name = "-";
-    C.StrLen(name, XL, YL);
-    C.SetPos(BoxX + SeparatorX - (XL * 0.5), BoxY + SeparatorY - (YL * 0.5));
-    C.DrawText(name);
     
     // TEAM SCORE RED
     
