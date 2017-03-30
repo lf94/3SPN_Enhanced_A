@@ -370,6 +370,7 @@ static function FillPlayInfo(PlayInfo PI)
     PI.AddSetting("3SPN", "ScoreboardBlueTeamName", "Scoreboard Blue Team Name", 0, Weight++, "Text", "80",, True);
 //    PI.AddSetting("3SPN", "UseZAxisRadar", "Extended HUD Includes Z Axis", 0, Weight++, "Check");
      PI.AddSetting("3SPN", "bOverkillMessage", "Toggle Overkill notification", 0, Weight++, "Check");
+	 PI.AddSetting("3SPN", "AdrenalinePerDamage", "Adrenaline Per Damage", 0, Weight++, "Text", "8;0.0:100.0");
 
     //serverlink menu entry
     Weight = 1;
@@ -453,6 +454,7 @@ static event string GetDescriptionText(string PropName)
 
 //      case "UseZAxisRadar":            return "Extended Player HUD Includes Z Axis For Allies";
       case "bOverkillMessage": return "Turn on/off the Overkill message and sound.";
+	  case "AdrenalinePerDamage": return "Adrenaline Received Per Damage Given (Default: 1)";
     }
 
     return Super.GetDescriptionText(PropName);
