@@ -256,7 +256,7 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
 		C.DrawColor = HUDClass.default.WhiteColor * 0.7;
 	}
 	if(len(class'Misc_Util'.static.StripColorCodes(name))<=18)
-		C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -2);
+		C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -3);
 	else
 		C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -3);
 	C.SetPos(BarX+NameX, BarY+NameY);

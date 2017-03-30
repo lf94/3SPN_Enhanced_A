@@ -498,7 +498,7 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
     
     // NAME
     
-    C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -2);
+    C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -3);
     if(PRI.bOutOfLives)
     {
         name = PRI.PlayerName;
