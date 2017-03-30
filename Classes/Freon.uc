@@ -617,16 +617,16 @@ function AnnounceBest()
         if(thaws.Team.TeamIndex == 0)
         {
             if(class'Misc_Player'.default.bEnableColoredNamesInTalk)
-                th =  Text$"Most Thaws:"@Red$thaws.GetColoredName()$Text$";"@thaws.Thaws@" ";
+                th =  Text$"Most Thaws:"@Red$thaws.GetColoredName()$Text$";"@int(thaws.Thaws)@" ";
             else
-                th =  Text$"Most Thaws:"@Red$thaws.PlayerName$Text$";"@thaws.Thaws@" ";
+                th =  Text$"Most Thaws:"@Red$thaws.PlayerName$Text$";"@int(thaws.Thaws)@" ";
         }
         else
         {
             if(class'Misc_Player'.default.bEnableColoredNamesInTalk)
-                th =  Text$"Most Thaws:"@Blue$thaws.GetColoredName()$Text$";"@thaws.Thaws@" ";
+                th =  Text$"Most Thaws:"@Blue$thaws.GetColoredName()$Text$";"@int(thaws.Thaws)@" ";
             else
-                th =  Text$"Most Thaws:"@Blue$thaws.PlayerName$Text$";"@thaws.Thaws@" ";
+                th =  Text$"Most Thaws:"@Blue$thaws.PlayerName$Text$";"@int(thaws.Thaws)@" ";
         }
     }
 
