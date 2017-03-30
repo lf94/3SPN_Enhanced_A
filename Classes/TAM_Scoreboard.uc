@@ -56,6 +56,8 @@ var int      MaxSpectators;
 var config bool bEnableColoredNamesOnScoreboard;
 var config bool bEnableColoredNamesOnHUD;
 
+var config int LocationNameMaxLength;
+
 simulated function SetCustomBarColor(out Color C, PlayerReplicationInfo PRI, bool bOwner);
 simulated function SetCustomLocationColor(out Color C, PlayerReplicationInfo PRI, bool bOwner);
 
@@ -584,6 +586,8 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
                 name = "Dead";*/
         }
     }
+	
+	name = class'TAM_HUD'.static.TruncStr(name, LocationNameMaxLength, "...");
     C.StrLen(name, XL, YL);
     if(XL > NameW)
         name = left(name, NameW / XL * len(name));
@@ -1112,6 +1116,7 @@ simulated event UpdateScoreBoard(Canvas C)
 defaultproperties
 {
     Box=Texture'Engine.WhiteSquareTexture'
+	LocationNameMaxLength=28
     BaseTex=Texture'3SPN_Enhanced_A.Textures.ScoreBoard'
     DefaultShieldTexture=Texture'3SPN_Enhanced_A.Textures.Shield'
     DefaultFlagTexture=Texture'3SPN_Enhanced_A.Textures.FlagDefault'

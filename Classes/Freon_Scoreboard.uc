@@ -333,6 +333,7 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
 				name = "Dead";*/
 		}
 	}
+	name = class'TAM_HUD'.static.TruncStr(name, LocationNameMaxLength, "...");
 	C.StrLen(name, XL, YL);
 	if(XL > NameW)
 		name = left(name, NameW / XL * len(name));

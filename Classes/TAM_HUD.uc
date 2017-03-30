@@ -11,6 +11,15 @@ var SpriteWidget ComboDisc;
 var SpriteWidget ComboType[10];
 /* combo related */
 
+
+static function string TruncStr(string Str, int TruncLen, string Decorator)
+{
+
+    if(Len(Str) <= TruncLen) { return Str; }
+	
+    return (Left(Str, TruncLen - Len(Decorator)) $ Decorator);
+}
+
 function DisplayMessages(Canvas C)
 {
     if(bShowScoreboard || bShowLocalStats)
@@ -95,6 +104,7 @@ simulated function DrawAdrenaline(Canvas C)
 
 defaultproperties
 {
+
      ComboAdren=(RenderStyle=STY_Alpha,TextureScale=0.270000,DrawPivot=DP_MiddleRight,PosX=0.980000,PosY=0.060000,OffsetX=-44,OffsetY=45,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
      ComboBack=(WidgetTexture=Texture'HUDContent.Generic.HUD',RenderStyle=STY_Alpha,TextureCoords=(X1=168,Y1=211,X2=334,Y2=255),TextureScale=0.250000,DrawPivot=DP_UpperRight,PosX=0.990000,PosY=0.060000,OffsetY=25,ScaleMode=SM_Left,Scale=1.500000,Tints[0]=(A=150),Tints[1]=(A=150))
      ComboType(1)=(WidgetTexture=Texture'3SPN_Enhanced_A.textures.Icons',RenderStyle=STY_Alpha,TextureCoords=(X1=90,Y1=173,X2=166,Y2=249),TextureScale=0.200000,DrawPivot=DP_UpperRight,PosX=0.987500,PosY=0.060000,OffsetX=10,OffsetY=23,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=200),Tints[1]=(B=255,G=255,R=255,A=200))
