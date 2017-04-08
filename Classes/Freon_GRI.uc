@@ -4,11 +4,12 @@ var float AutoThawTime;
 var float ThawSpeed;
 var bool  bTeamHeal;
 var float ThawPointScale;
+var bool bRoundOTCuddling;
 
 replication
 {
     reliable if(bNetInitial && Role == ROLE_Authority)
-        AutoThawTime, ThawSpeed, bTeamHeal, ThawPointScale;
+        bRoundOTCuddling, AutoThawTime, ThawSpeed, bTeamHeal, ThawPointScale;
 }
 
 defaultproperties

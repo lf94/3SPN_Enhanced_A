@@ -46,6 +46,8 @@ var string ScoreboardRedTeamName;
 var string ScoreboardBlueTeamName;
 
 var bool UseZAxisRadar;
+var bool bOverkillMessage;
+
 var Team_GameBase.EServerLinkStatus ServerLinkStatus; //enum type dependson Team_GameBase
 
 replication
@@ -59,7 +61,7 @@ replication
         FlagTextureEnabled, FlagTextureName, FlagTextureShowAcronym, SoundAloneName,
         SoundSpawnProtectionName,
         ScoreboardCommunityName, ScoreboardRedTeamName, ScoreboardBlueTeamName, UseZAxisRadar,
-        ServerLinkStatus;
+		bOverkillMessage, ServerLinkStatus;
 
     reliable if(!bNetInitial && bNetDirty && Role == ROLE_Authority)
         RoundMinute;
