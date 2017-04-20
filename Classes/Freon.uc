@@ -646,7 +646,7 @@ function AnnounceBest()
             else
                 gt =  Text$"Biggest Git:"@Blue$git.PlayerName$Text$";"@git.Git@" ";
         }
-    }
+    }    
 
     for(C = Level.ControllerList; C != None; C = C.NextController)
         if(Freon_Player(c) != None)
@@ -668,7 +668,7 @@ defaultproperties
      HUDType="3SPN_Enhanced_A.Freon_HUD"
      PlayerControllerClassName="3SPN_Enhanced_A.Freon_Player"
      GameReplicationInfoClass=Class'3SPN_Enhanced_A.Freon_GRI'
-     GameName="Freon"
+     GameName="Freon En_A"
      Description="Freeze the other team, score a point. Chill well and serve."
      Acronym="Freon"
      NextRoundDelayFreon=1
