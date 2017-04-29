@@ -16,8 +16,8 @@ defaultproperties
      FlakAmmo=0
      RocketAmmo=0
      LightningAmmo=0
-     ScoreboardRedTeamName="!nSta Killas"
-     ScoreboardBlueTeamName="!nSta Assasins"
+     ScoreboardRedTeamName="!nStaÂ Killas"
+     ScoreboardBlueTeamName="!nStaÂ Assasins"
      TeamAIType(0)=Class'3SPN_Enhanced_A.Freon_TeamAI'
      TeamAIType(1)=Class'3SPN_Enhanced_A.Freon_TeamAI'
      DefaultPlayerClassName="3SPN_Enhanced_A.Freon_Pawn"
@@ -25,7 +25,7 @@ defaultproperties
      HUDType="3SPN_Enhanced_A.Freon_HUD"
      PlayerControllerClassName="3SPN_Enhanced_A.Freon_Player"
      GameReplicationInfoClass=Class'3SPN_Enhanced_A.Freon_GRI'
-     GameName="IG Freon"
+     GameName="IG Freon En_A"
      Description="Freeze the other team, score a point. Chill well and serve."
      Acronym="IGFreon"
      NextRoundDelayFreon=1

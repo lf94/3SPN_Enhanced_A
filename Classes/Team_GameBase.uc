@@ -1185,6 +1185,9 @@ function NavigationPoint FindPlayerStart(Controller Player, optional byte InTeam
     {
         if(N.IsA('PathNode') || N.IsA('PlayerStart') || N.IsA('JumpSpot'))
             NewRating = RatePlayerStart(N, Team, Player);
+	else if(N.IsA('LiftCenter'))
+            NewRating = 0;
+	    log("Didn't spawn on a LiftCenter!");
         else
             NewRating = 1;
         if ( NewRating > BestRating )
