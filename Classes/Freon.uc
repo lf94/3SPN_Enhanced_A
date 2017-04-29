@@ -360,6 +360,13 @@ function PlayerThawed(Freon_Pawn Thawed, optional float Health, optional float S
                     {
                         Weapon(inv).AmmoCharge[0] = WD[i].Ammo[0];
                         Weapon(inv).AmmoCharge[1] = WD[i].Ammo[1];
+						
+						// Special shield gun alt fire fix...
+						// This happens because there are client side timers that need to be reactived.
+						// Only stop/start fire sets the timers.
+						if(Weapon(inv).IsA('ShieldGun')) {
+						    Weapon(inv).StopFire(1);
+						}
                         break;
                     }
                 }
