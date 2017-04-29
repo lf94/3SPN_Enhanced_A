@@ -12,6 +12,7 @@ var Sound TouchSound;
 var float ThawSpeed;
 var float AutoThawTime;
 var float FrozeTime;
+var bool bRoundOTCuddling;
 
 var float FastThawModifier;
 
@@ -32,6 +33,7 @@ function PostBeginPlay()
     AutoThawTime = Freon_GRI(Level.GRI).AutoThawTime;
     ThawSpeed = FMax(Freon_GRI(Level.GRI).ThawSpeed, 0.5);
     bTeamHeal = Freon_GRI(Level.GRI).bTeamHeal;
+	bRoundOTCuddling = Freon_GRI(Level.GRI).bRoundOTCuddling;
 
     Team = PawnOwner.GetTeamNum();
     if(Team == 255)
@@ -152,6 +154,14 @@ function AwardPlayerThaw(PlayerReplicationInfo PRI, float UnthawAmount)
 	
 }
 
+function bool IsCuddlingAllowed(Team_GameBase TGB) {
+    if(TGB.bRoundOT == true) {
+	     return bRoundOTCuddling;
+	}
+	
+	return true;
+}
+
 function Timer()
 {
     local int i;
@@ -161,11 +171,12 @@ function Timer()
 
     local float Touchers;
 	local float Distance;
-	local float UnthawAmount;
 
     local float AverageDistance;
+	local Team_GameBase TGB;
+	TGB = Team_GameBase(Level.Game);
 
-	if(Team_GameBase(Level.Game).bEndOfRound || Team_GameBase(Level.Game).EndOfRoundTime>0)
+	if(TGB.bEndOfRound || TGB.EndOfRoundTime>0 || IsCuddlingAllowed(TGB) == false)
 		return;
 		
     if(bTeamHeal && Toucher.Length > 0)
@@ -224,9 +235,12 @@ state PawnFrozen
         local float Touchers;
 		local float Distance;
 		local float UnthawAmount;
-	
+		
+        local Team_GameBase TGB;
 
         local float AverageDistance;
+		
+		TGB = Team_GameBase(Level.Game);
 
         if(PawnOwner == None)
         {
@@ -234,7 +248,7 @@ state PawnFrozen
             return;
         }
 		
-		if(Team_GameBase(Level.Game).bEndOfRound || Team_GameBase(Level.Game).EndOfRoundTime>0)
+		if(TGB.bEndOfRound || TGB.EndOfRoundTime>0 || IsCuddlingAllowed(TGB) == false)
 			return;
 
         // touch thaw adjustment

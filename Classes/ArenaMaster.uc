@@ -1716,7 +1716,7 @@ defaultproperties
 	MutatorClass="3SPN_Enhanced_A.TAM_Mutator"
 	PlayerControllerClassName="3SPN_Enhanced_A.Misc_Player"
 	GameReplicationInfoClass=Class'3SPN_Enhanced_A.TAM_GRI'
-	GameName="ArenaMaster v3"
+	GameName="ArenaMaster En_A"
 	Description="One life per round. Don't waste it"
 	Acronym="AM"
 	LockTime=4
