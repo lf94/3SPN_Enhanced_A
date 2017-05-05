@@ -2,6 +2,8 @@ class Freon_Trigger extends Trigger;
 
 #exec AUDIO IMPORT FILE=Sounds\touch.wav        GROUP=Sounds
 
+var float             ThawRadius;
+
 var Freon_Pawn        PawnOwner;
 var Array<Freon_Pawn> Toucher;
 var int               Team;
@@ -32,8 +34,10 @@ function PostBeginPlay()
 
     AutoThawTime = Freon_GRI(Level.GRI).AutoThawTime;
     ThawSpeed = FMax(Freon_GRI(Level.GRI).ThawSpeed, 0.5);
+	ThawRadius = FMax(Freon_GRI(Level.GRI).ThawRadius, 200.0);
     bTeamHeal = Freon_GRI(Level.GRI).bTeamHeal;
 	bRoundOTCuddling = Freon_GRI(Level.GRI).bRoundOTCuddling;
+	
 
     Team = PawnOwner.GetTeamNum();
     if(Team == 255)
@@ -130,9 +134,9 @@ function bool TellBotToThaw(Bot B)
     return false;
 }
 
-static function float calculateHealthGain(float Distance, float ThawSpeed, float Touchers)
+static function float calculateHealthGain(float Distance, float ThawSpeed, float Touchers, float Radius)
 {
-	if(Distance <= 100.0)
+	if(Distance <= Radius)
 		return (100.0 / Max(0.0001,ThawSpeed)) * 0.5 * Touchers;
 	
 	return 0;
@@ -200,7 +204,7 @@ function Timer()
         {
             AverageDistance /= i;
 			
-	    HealthGain = calculateHealthGain(AverageDistance, ThawSpeed, Touchers);
+	    HealthGain = calculateHealthGain(AverageDistance, ThawSpeed, Touchers, ThawRadius);
             PawnOwner.GiveHealth(HealthGain, MostHealth);
         }
     }        
@@ -270,13 +274,13 @@ state PawnFrozen
                 Distance = VSize(PawnOwner.Location - Toucher[i].Location);
 				AverageDistance += Distance;
 				
-				UnthawAmount = calculateHealthGain(Distance, ThawSpeed, 1.0f);
+				UnthawAmount = calculateHealthGain(Distance, ThawSpeed, 1.0f, ThawRadius);
 				AwardPlayerThaw(Toucher[i].PlayerReplicationInfo, UnthawAmount);
             }
 
             AverageDistance /= i;
 
-            HealthGain += calculateHealthGain(AverageDistance, ThawSpeed, Touchers);
+            HealthGain += calculateHealthGain(AverageDistance, ThawSpeed, Touchers, ThawRadius);
         }
         // auto thaw adjustment
         else if(AutoThawTime > 0.0)
@@ -316,6 +320,7 @@ defaultproperties
      ThawSound=Sound'WeaponSounds.BaseGunTech.BGrenfloor1'
      TouchSound=Sound'3SPN_Enhanced_A.Sounds.Touch'
      ThawSpeed=5.000000
+	 ThawRadius=200.0
      AutoThawTime=60.000000
      FastThawModifier=1.500000
      bTeamHeal=True

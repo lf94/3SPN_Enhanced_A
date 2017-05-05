@@ -5,6 +5,7 @@ class Freon extends TeamArenaMaster
 
 var config float AutoThawTime;
 var config float ThawSpeed;
+var config float ThawRadius;
 var config float MinHealthOnThaw;
 var config float ThawPointScale;
 
@@ -33,6 +34,7 @@ function InitGameReplicationInfo()
 
     Freon_GRI(GameReplicationInfo).AutoThawTime = AutoThawTime;
     Freon_GRI(GameReplicationInfo).ThawSpeed = ThawSpeed;
+	Freon_GRI(GameReplicationInfo).ThawRadius = ThawRadius;
     Freon_GRI(GameReplicationInfo).bTeamHeal = bTeamHeal;
 	Freon_GRI(GameReplicationInfo).bRoundOTCuddling = bRoundOTCuddling;
     Freon_GRI(GameReplicationInfo).ThawPointScale = ThawPointScale;
@@ -60,6 +62,7 @@ static function FillPlayInfo(PlayInfo PI)
     PI.AddSetting("3SPN Freon", "KillGitters", "Kill Gitters", 0, 106, "Check");
     PI.AddSetting("3SPN Freon", "MaxGitsAllowed", "Max Gits Allowed", 0, 107, "Text", "3;0:999");
 	PI.AddSetting("3SPN Freon", "bRoundOTCuddling", "Allow Over-time Cuddling", 0, 108, "Check");
+	PI.AddSetting("3SPN Freon", "ThawRadius", "Thaw Radius", 0, 109, "Text", "3;0:999");
 }
 
 static event string GetDescriptionText(string PropName)
@@ -70,6 +73,7 @@ static event string GetDescriptionText(string PropName)
         case "TeleportOnThaw":          return "Teleport After Thawing";
         case "AutoThawTime":            return "Automatic Thawing Time";
         case "ThawSpeed":               return "Touch Thawing Time";
+		case "ThawRadius":              return "How close you have to be to a player to thaw them";
         case "MinHealthOnThaw":         return "Minimum Health After Thawing";
         case "KillGitters":             return "Kill Gitters";
         case "MaxGitsAllowed":          return "Max Gits Allowed";
@@ -93,6 +97,10 @@ function ParseOptions(string Options)
     InOpt = ParseOption(Options, "ThawSpeed");
     if(InOpt != "")
         ThawSpeed = float(InOpt);
+		
+	InOpt = ParseOption(Options, "ThawRadius");
+    if(InOpt != "")
+        ThawRadius = float(InOpt);
 
     InOpt = ParseOption(Options, "TeamHeal");
     if(InOpt != "")
@@ -664,6 +672,7 @@ defaultproperties
 {
      AutoThawTime=90.000000
      ThawSpeed=5.000000
+	 ThawRadius=200.0
      MinHealthOnThaw=25
      bTeamHeal=True
      bRoundOTCuddling=True
