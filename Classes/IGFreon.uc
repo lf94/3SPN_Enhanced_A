@@ -28,6 +28,7 @@ defaultproperties
      GameName="IG Freon En_A"
      Description="Freeze the other team, score a point. Chill well and serve."
      Acronym="IGFreon"
+     MapPrefix="IFR"
      NextRoundDelayFreon=1
      TeleportOnThaw=True
      bSpawnProtectionOnThaw=True
