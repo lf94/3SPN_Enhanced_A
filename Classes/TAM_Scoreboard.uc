@@ -56,6 +56,8 @@ var int      MaxSpectators;
 var config bool bEnableColoredNamesOnScoreboard;
 var config bool bEnableColoredNamesOnHUD;
 
+var config int LocationNameMaxLength;
+
 simulated function SetCustomBarColor(out Color C, PlayerReplicationInfo PRI, bool bOwner);
 simulated function SetCustomLocationColor(out Color C, PlayerReplicationInfo PRI, bool bOwner);
 
@@ -286,14 +288,6 @@ simulated function DrawTeamScores(Canvas C, int BoxX, int BoxY, int BoxW, int Bo
       C.DrawText(name);
   }
   
-  // SEPARATOR
-
-    C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -1);
-    C.DrawColor = HUDClass.default.WhiteColor;
-    name = "-";
-    C.StrLen(name, XL, YL);
-    C.SetPos(BoxX + SeparatorX - (XL * 0.5), BoxY + SeparatorY - (YL * 0.5));
-    C.DrawText(name);
     
     // TEAM SCORE RED
     
@@ -504,7 +498,7 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
     
     // NAME
     
-    C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -2);
+    C.Font = PlayerController(Owner).MyHUD.GetFontSizeIndex(C, -3);
     if(PRI.bOutOfLives)
     {
         name = PRI.PlayerName;
@@ -592,6 +586,8 @@ simulated function DrawPlayerBar(Canvas C, int BarX, int BarY, int BarW, int Bar
                 name = "Dead";*/
         }
     }
+	
+	name = class'TAM_HUD'.static.TruncStr(name, LocationNameMaxLength, "...");
     C.StrLen(name, XL, YL);
     if(XL > NameW)
         name = left(name, NameW / XL * len(name));
@@ -1120,6 +1116,7 @@ simulated event UpdateScoreBoard(Canvas C)
 defaultproperties
 {
     Box=Texture'Engine.WhiteSquareTexture'
+	LocationNameMaxLength=28
     BaseTex=Texture'3SPN_Enhanced_A.Textures.ScoreBoard'
     DefaultShieldTexture=Texture'3SPN_Enhanced_A.Textures.Shield'
     DefaultFlagTexture=Texture'3SPN_Enhanced_A.Textures.FlagDefault'

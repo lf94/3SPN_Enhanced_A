@@ -169,6 +169,7 @@ var config bool AllowServerSaveSettings;
 var config bool AlwaysRestartServerWhenEmpty;
 
 var Sound OvertimeSound;
+var config bool bOverkillMessage;
 
 //var config bool UseZAxisRadar; // don't make a config option
 var bool UseZAxisRadar;
@@ -250,6 +251,7 @@ function InitGameReplicationInfo()
     Misc_BaseGRI(GameReplicationInfo).ScoreboardBlueTeamName = ScoreboardBlueTeamName;
 
     Misc_BaseGRI(GameReplicationInfo).UseZAxisRadar = UseZAxisRadar;
+	Misc_BaseGRI(GameReplicationInfo).bOverkillMessage = bOverkillMessage;
     Misc_BaseGRI(GameReplicationInfo).ServerLinkStatus = ServerLinkStatus;
 }
 
@@ -367,6 +369,8 @@ static function FillPlayInfo(PlayInfo PI)
     PI.AddSetting("3SPN", "ScoreboardRedTeamName", "Scoreboard Red Team Name", 0, Weight++, "Text", "80",, True);
     PI.AddSetting("3SPN", "ScoreboardBlueTeamName", "Scoreboard Blue Team Name", 0, Weight++, "Text", "80",, True);
 //    PI.AddSetting("3SPN", "UseZAxisRadar", "Extended HUD Includes Z Axis", 0, Weight++, "Check");
+     PI.AddSetting("3SPN", "bOverkillMessage", "Toggle Overkill notification", 0, Weight++, "Check");
+	 PI.AddSetting("3SPN", "AdrenalinePerDamage", "Adrenaline Per Damage", 0, Weight++, "Text", "8;0.0:100.0");
 
     //serverlink menu entry
     Weight = 1;
@@ -449,6 +453,8 @@ static event string GetDescriptionText(string PropName)
       case "ScoreboardBlueTeamName":   return "Scoreboard Blue Team Name";
 
 //      case "UseZAxisRadar":            return "Extended Player HUD Includes Z Axis For Allies";
+      case "bOverkillMessage": return "Turn on/off the Overkill message and sound.";
+	  case "AdrenalinePerDamage": return "Adrenaline Received Per Damage Given (Default: 1)";
     }
 
     return Super.GetDescriptionText(PropName);
@@ -1024,12 +1030,21 @@ function int ReduceDamage(int Damage, pawn injured, pawn instigatedBy, vector Hi
             if(Damage > (injured.Health + injured.ShieldStrength + 50) &&
                 Damage / (injured.Health + injured.ShieldStrength) > 2)
             {
+			
+			    /* 
+				    Even though the Overkill message is off,
+					we still want the event to propagate throughout
+					the system. Other parts could use it for whatever reason.
+				*/
                 PRI.OverkillCount++;
                 SpecialEvent(PRI, "Overkill");
+				
+				if(bOverkillMessage == true) { 
 
-                if(Misc_Player(instigatedBy.Controller) != None)
-                    Misc_Player(instigatedBy.Controller).ReceiveLocalizedMessage(class'Message_Overkill');
+                    if(Misc_Player(instigatedBy.Controller) != None)
+                        Misc_Player(instigatedBy.Controller).ReceiveLocalizedMessage(class'Message_Overkill');
                 // overkill
+				}
             }
 
             /* hitstats */
@@ -1170,8 +1185,11 @@ function NavigationPoint FindPlayerStart(Controller Player, optional byte InTeam
     {
         if(N.IsA('PathNode') || N.IsA('PlayerStart') || N.IsA('JumpSpot'))
             NewRating = RatePlayerStart(N, Team, Player);
+	    else if(N.IsA('LiftCenter'))
+            NewRating = 0;
         else
             NewRating = 1;
+			
         if ( NewRating > BestRating )
         {
             BestRating = NewRating;
@@ -3453,6 +3471,7 @@ defaultproperties
     AdrenalinePerDamage=1.000000
     ScoreAwardPer10Damage=0.1
     bForceRUP=True
+	bOverkillMessage=True
     ForceRUPMinPlayers=0
     ForceSeconds=60
     SecsPerRound=120

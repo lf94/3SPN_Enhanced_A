@@ -328,7 +328,7 @@ defaultproperties
      //SpawnProtectionTime=0.000000
      MaxLives=1
      GameReplicationInfoClass=Class'3SPN_Enhanced_A.TAM_GRI'
-     GameName="Team ArenaMaster v3"
+     GameName="Team ArenaMaster En_A"
      Acronym="TAM"
      MapListType="3SPN_Enhanced_A.MapListTeamArenaMaster";
 }

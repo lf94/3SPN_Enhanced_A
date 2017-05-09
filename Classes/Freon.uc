@@ -9,6 +9,7 @@ var config float MinHealthOnThaw;
 var config float ThawPointScale;
 
 var bool  bTeamHeal;
+var config bool bRoundOTCuddling;
 
 var array<Freon_Pawn> FrozenPawns;
 
@@ -33,6 +34,7 @@ function InitGameReplicationInfo()
     Freon_GRI(GameReplicationInfo).AutoThawTime = AutoThawTime;
     Freon_GRI(GameReplicationInfo).ThawSpeed = ThawSpeed;
     Freon_GRI(GameReplicationInfo).bTeamHeal = bTeamHeal;
+	Freon_GRI(GameReplicationInfo).bRoundOTCuddling = bRoundOTCuddling;
     Freon_GRI(GameReplicationInfo).ThawPointScale = ThawPointScale;
 }
 
@@ -57,6 +59,7 @@ static function FillPlayInfo(PlayInfo PI)
     PI.AddSetting("3SPN Freon", "ThawPointScale", "Thaw Points Scale", 0, 105, "Text", "8;0:999");
     PI.AddSetting("3SPN Freon", "KillGitters", "Kill Gitters", 0, 106, "Check");
     PI.AddSetting("3SPN Freon", "MaxGitsAllowed", "Max Gits Allowed", 0, 107, "Text", "3;0:999");
+	PI.AddSetting("3SPN Freon", "bRoundOTCuddling", "Allow Over-time Cuddling", 0, 108, "Check");
 }
 
 static event string GetDescriptionText(string PropName)
@@ -70,7 +73,8 @@ static event string GetDescriptionText(string PropName)
         case "MinHealthOnThaw":         return "Minimum Health After Thawing";
         case "KillGitters":             return "Kill Gitters";
         case "MaxGitsAllowed":          return "Max Gits Allowed";
-        case "ThawPointScale":          return "Thawing Points Scale (default is 2.5)";
+        case "ThawPointScale":          return "Thawing Points Scalez (default is 2.5)";
+		case "bRoundOTCuddling":        return "Allow Cuddling in Over-time.";
     }
 
     return Super.GetDescriptionText(PropName);
@@ -93,6 +97,12 @@ function ParseOptions(string Options)
     InOpt = ParseOption(Options, "TeamHeal");
     if(InOpt != "")
         bTeamHeal = bool(InOpt);
+	
+	
+	InOpt = ParseOption(Options, "bRoundOTCuddling");
+    if(InOpt != "")
+        bRoundOTCuddling = bool(InOpt);
+	
 
     InOpt = ParseOption(Options, "ThawPointScale");
     if(InOpt != "")
@@ -350,6 +360,13 @@ function PlayerThawed(Freon_Pawn Thawed, optional float Health, optional float S
                     {
                         Weapon(inv).AmmoCharge[0] = WD[i].Ammo[0];
                         Weapon(inv).AmmoCharge[1] = WD[i].Ammo[1];
+						
+						// Special shield gun alt fire fix...
+						// This happens because there are client side timers that need to be reactived.
+						// Only stop/start fire sets the timers.
+						if(Weapon(inv).IsA('ShieldGun')) {
+						    Weapon(inv).StopFire(1);
+						}
                         break;
                     }
                 }
@@ -607,16 +624,16 @@ function AnnounceBest()
         if(thaws.Team.TeamIndex == 0)
         {
             if(class'Misc_Player'.default.bEnableColoredNamesInTalk)
-                th =  Text$"Most Thaws:"@Red$thaws.GetColoredName()$Text$";"@thaws.Thaws@" ";
+                th =  Text$"Most Thaws:"@Red$thaws.GetColoredName()$Text$";"@int(thaws.Thaws)@" ";
             else
-                th =  Text$"Most Thaws:"@Red$thaws.PlayerName$Text$";"@thaws.Thaws@" ";
+                th =  Text$"Most Thaws:"@Red$thaws.PlayerName$Text$";"@int(thaws.Thaws)@" ";
         }
         else
         {
             if(class'Misc_Player'.default.bEnableColoredNamesInTalk)
-                th =  Text$"Most Thaws:"@Blue$thaws.GetColoredName()$Text$";"@thaws.Thaws@" ";
+                th =  Text$"Most Thaws:"@Blue$thaws.GetColoredName()$Text$";"@int(thaws.Thaws)@" ";
             else
-                th =  Text$"Most Thaws:"@Blue$thaws.PlayerName$Text$";"@thaws.Thaws@" ";
+                th =  Text$"Most Thaws:"@Blue$thaws.PlayerName$Text$";"@int(thaws.Thaws)@" ";
         }
     }
 
@@ -636,7 +653,7 @@ function AnnounceBest()
             else
                 gt =  Text$"Biggest Git:"@Blue$git.PlayerName$Text$";"@git.Git@" ";
         }
-    }
+    }    
 
     for(C = Level.ControllerList; C != None; C = C.NextController)
         if(Freon_Player(c) != None)
@@ -649,6 +666,7 @@ defaultproperties
      ThawSpeed=5.000000
      MinHealthOnThaw=25
      bTeamHeal=True
+     bRoundOTCuddling=True
      bDisableTeamCombos=False
      TeamAIType(0)=Class'3SPN_Enhanced_A.Freon_TeamAI'
      TeamAIType(1)=Class'3SPN_Enhanced_A.Freon_TeamAI'
@@ -657,9 +675,10 @@ defaultproperties
      HUDType="3SPN_Enhanced_A.Freon_HUD"
      PlayerControllerClassName="3SPN_Enhanced_A.Freon_Player"
      GameReplicationInfoClass=Class'3SPN_Enhanced_A.Freon_GRI'
-     GameName="Freon"
+     GameName="Freon En_A"
      Description="Freeze the other team, score a point. Chill well and serve."
      Acronym="Freon"
+     MapPrefix="FR"
      NextRoundDelayFreon=1
      TeleportOnThaw=True
      bSpawnProtectionOnThaw=True
