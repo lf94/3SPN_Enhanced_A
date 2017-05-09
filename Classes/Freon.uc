@@ -687,6 +687,7 @@ defaultproperties
      GameName="Freon En_A"
      Description="Freeze the other team, score a point. Chill well and serve."
      Acronym="Freon"
+     MapPrefix="FR"
      NextRoundDelayFreon=1
      TeleportOnThaw=True
      bSpawnProtectionOnThaw=True
