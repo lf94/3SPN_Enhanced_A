@@ -1035,7 +1035,7 @@ function bool IsLastmanStandingAndAllowedCombo() {
 	T = TAM_GRI(Level.GRI);
 	
     if (T == None) { return false; }
-	return T.LastPlayer != None && T.bEnableLMSCombos;	
+	return T.TeamLastPlayer[Pawn.GetTeamNum()] != None && T.bEnableLMSCombos;	
 }
 
 function ServerDoCombo(class<Combo> ComboClass)

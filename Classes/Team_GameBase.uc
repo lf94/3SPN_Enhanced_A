@@ -172,7 +172,7 @@ var config bool AlwaysRestartServerWhenEmpty;
 var Sound OvertimeSound;
 var config bool bOverkillMessage;
 
-var Controller last;
+var Controller TeamLastPlayer[2];
 
 //var config bool UseZAxisRadar; // don't make a config option
 var bool UseZAxisRadar;
@@ -258,7 +258,8 @@ function InitGameReplicationInfo()
 	Misc_BaseGRI(GameReplicationInfo).bOverkillMessage = bOverkillMessage;
     Misc_BaseGRI(GameReplicationInfo).ServerLinkStatus = ServerLinkStatus;
 	
-	Misc_BaseGRI(GameReplicationInfo).LastPlayer = last;
+	Misc_BaseGRI(GameReplicationInfo).TeamLastPlayer[0] = None;
+	Misc_BaseGRI(GameReplicationInfo).TeamLastPlayer[1] = None;
 }
 
 function GetServerDetails(out ServerResponseLine ServerState)
@@ -2890,6 +2891,7 @@ function CheckForAlone(Controller Died, int TeamIndex)
 {
     local Controller c;
     local int alive[2];
+	local TAM_GRI T;
 
     if(DarkHorse == Died)
     {
@@ -2909,20 +2911,23 @@ function CheckForAlone(Controller Died, int TeamIndex)
         if(c.GetTeamNum() == TeamIndex)
         {
             if(alive[TeamIndex] != 1)
-                last = None;
+                TeamLastPlayer[TeamIndex] = None;
             else
-                last = c;
+                TeamLastPlayer[TeamIndex] = c;
         }
     }
+	
+	T = TAM_GRI(Level.GRI);
+    T.TeamLastPlayer[TeamIndex] = TeamLastPlayer[TeamIndex];
 
-    if(alive[TeamIndex] != 1 || last == None)
+    if(alive[TeamIndex] != 1 || TeamLastPlayer[TeamIndex] == None)
         return;
 
-    if(Misc_Player(last) != None)
-        Misc_Player(last).ClientPlayAlone();
+    if(Misc_Player(TeamLastPlayer[TeamIndex]) != None)
+        Misc_Player(TeamLastPlayer[TeamIndex]).ClientPlayAlone();
 
     if(DarkHorse == None && (alive[int(!bool(TeamIndex))] >= 3 && NumPlayers + NumBots >= 4))
-        DarkHorse = last;
+        DarkHorse = TeamLastPlayer[TeamIndex];
 }
 
 // used to show 'player is out' message
