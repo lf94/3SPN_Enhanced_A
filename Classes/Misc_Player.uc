@@ -1030,17 +1030,12 @@ function bool CanDoCombo(class<Combo> ComboClass)
 }
 
 function bool IsLastmanStandingAndAllowedCombo() {
-    local TeamInfo T;
+    local TAM_GRI T;
 	
-    if (Pawn != None)
-	{ T = Pawn.GetTeam();
-	if (T != None) 
-	{
-		return T.Size <= 1 && TAM_GRI(Level.GRI).bEnableLMSCombos;
-	}
-	}
+	T = TAM_GRI(Level.GRI);
 	
-	return false;
+    if (T == None) { return false; }
+	return T.LastPlayer != None && T.bEnableLMSCombos;	
 }
 
 function ServerDoCombo(class<Combo> ComboClass)

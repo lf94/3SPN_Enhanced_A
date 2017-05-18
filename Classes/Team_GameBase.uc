@@ -172,6 +172,8 @@ var config bool AlwaysRestartServerWhenEmpty;
 var Sound OvertimeSound;
 var config bool bOverkillMessage;
 
+var Controller last;
+
 //var config bool UseZAxisRadar; // don't make a config option
 var bool UseZAxisRadar;
 
@@ -255,6 +257,8 @@ function InitGameReplicationInfo()
     Misc_BaseGRI(GameReplicationInfo).UseZAxisRadar = UseZAxisRadar;
 	Misc_BaseGRI(GameReplicationInfo).bOverkillMessage = bOverkillMessage;
     Misc_BaseGRI(GameReplicationInfo).ServerLinkStatus = ServerLinkStatus;
+	
+	Misc_BaseGRI(GameReplicationInfo).LastPlayer = last;
 }
 
 function GetServerDetails(out ServerResponseLine ServerState)
@@ -2885,7 +2889,6 @@ function Killed(Controller Killer, Controller Killed, Pawn KilledPawn, class<Dam
 function CheckForAlone(Controller Died, int TeamIndex)
 {
     local Controller c;
-    local Controller last;
     local int alive[2];
 
     if(DarkHorse == Died)
