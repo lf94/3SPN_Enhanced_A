@@ -1031,11 +1031,15 @@ function bool CanDoCombo(class<Combo> ComboClass)
 
 function bool IsLastmanStandingAndAllowedCombo() {
     local TAM_GRI T;
+	local TeamInfo TI;
 	
-	T = TAM_GRI(Level.GRI);
+	if(Pawn == None) { return false; }
 	
-    if (T == None) { return false; }
-	return T.TeamLastPlayer[Pawn.GetTeamNum()] != None && T.bEnableLMSCombos;	
+	T  = TAM_GRI(Level.GRI);
+	TI = Pawn.GetTeam();
+	
+    if (T == None || TI == None) { return false; }
+	return (T.TeamLastPlayer[Pawn.GetTeamNum()] != None || TI.Size <= 1) && T.bEnableLMSCombos;	
 }
 
 function ServerDoCombo(class<Combo> ComboClass)
