@@ -519,9 +519,9 @@ State Frozen
 
         if(DamageType.default.bCausedByWorld)
         {
-			if(DamageType == class'FellLava')
+			/*if(DamageType == class'FellLava')
 				Thaw();
-			else
+			else*/
 				DiedFrozen(None, DamageType, HitLocation);
 			return;
         }
