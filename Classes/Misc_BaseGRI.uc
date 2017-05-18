@@ -27,6 +27,7 @@ var bool bDisableSpeed;
 var bool bDisableBooster;
 var bool bDisableInvis;
 var bool bDisableBerserk;
+var bool bEnableLMSCombos;
 
 var int  TimeOuts;
 
@@ -55,7 +56,7 @@ replication
 
     reliable if(bNetInitial && Role == ROLE_Authority)
         RoundTime, SecsPerRound, bDisableSpeed, bDisableBooster, bDisableInvis,
-        bDisableBerserk, StartingHealth, StartingArmor, MaxHealth, OTDamage,
+        bDisableBerserk, bEnableLMSCombos, StartingHealth, StartingArmor, MaxHealth, OTDamage,
         OTInterval, CampThreshold, bKickExcessiveCampers, bForceRUP, ForceRUPMinPlayers,
         TimeOuts, Acronym, EnableNewNet, ShieldTextureName, ShowServerName,
         FlagTextureEnabled, FlagTextureName, FlagTextureShowAcronym, SoundAloneName,

@@ -17,6 +17,7 @@ var config bool     bDisableSpeed;
 var config bool     bDisableBooster;
 var config bool     bDisableInvis;
 var config bool     bDisableBerserk;
+var config bool     bEnableLMSCombos;
 var array<string>   EnabledCombos;
 
 var config bool     bForceRUP;              // force players to ready up after...
@@ -228,6 +229,7 @@ function InitGameReplicationInfo()
     Misc_BaseGRI(GameReplicationInfo).bDisableInvis = bDisableInvis;
     Misc_BaseGRI(GameReplicationInfo).bDisableBooster = bDisableBooster;
     Misc_BaseGRI(GameReplicationInfo).bDisableBerserk = bDisableBerserk;
+	Misc_BaseGRI(GameReplicationInfo).bEnableLMSCombos = bEnableLMSCombos;
 
     Misc_BaseGRI(GameReplicationInfo).bForceRUP = bForceRUP;
     Misc_BaseGRI(GameReplicationInfo).ForceRUPMinPlayers = ForceRUPMinPlayers;
@@ -333,6 +335,7 @@ static function FillPlayInfo(PlayInfo PI)
     PI.AddSetting("3SPN", "bDisableInvis", "Disable Invis", 0, Weight++, "Check");
     PI.AddSetting("3SPN", "bDisableBerserk", "Disable Berserk", 0, Weight++, "Check");
     PI.AddSetting("3SPN", "bDisableBooster", "Disable Booster", 0, Weight++, "Check");
+	PI.AddSetting("3SPN", "bEnableLMSCombos", "Enable LMS Combos", 0, Weight++, "Check");
     PI.AddSetting("3SPN", "Timeouts", "TimeOuts Per Team", 0, Weight++, "Text", "3;0:999",, True);
     PI.AddSetting("3SPN", "TimeOutDuration", "Time Out Duration", 0, Weight++, "Text", "3;0:999",, True);
 
@@ -404,6 +407,7 @@ static event string GetDescriptionText(string PropName)
       case "bDisableInvis":       return "Disable the Invisibility adrenaline combo.";
       case "bDisableBooster":     return "Disable the Booster adrenaline combo.";
       case "bDisableBerserk":     return "Disable the Berserk adrenaline combo.";
+	  case "bEnableLMSCombos":    return "Lets a 1-man team use combos.";
 
       case "bForceRUP":           return "Force players to ready up after a set amount of time";
       case "ForceRUPMinPlayers":  return "Force players to ready only when at least this many players present.";
@@ -523,6 +527,10 @@ function ParseOptions(string Options)
     InOpt = ParseOption(Options, "DisableBooster");
     if(InOpt != "")
         bDisableBooster = bool(InOpt);
+		
+    InOpt = ParseOption(Options, "bEnableLMSCombos");
+    if(InOpt != "")
+        bEnableLMSCombos = bool(InOpt);
 
     InOpt = ParseOption(Options, "Timeouts");
     if(InOpt != "")

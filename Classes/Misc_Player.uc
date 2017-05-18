@@ -1029,6 +1029,20 @@ function bool CanDoCombo(class<Combo> ComboClass)
     return true;
 }
 
+function bool IsLastmanStandingAndAllowedCombo() {
+    local TeamInfo T;
+	
+    if (Pawn != None)
+	{ T = Pawn.GetTeam();
+	if (T != None) 
+	{
+		return T.Size <= 1 && TAM_GRI(Level.GRI).bEnableLMSCombos;
+	}
+	}
+	
+	return false;
+}
+
 function ServerDoCombo(class<Combo> ComboClass)
 {
     if(class<ComboBerserk>(ComboClass) != None)
@@ -1041,8 +1055,15 @@ function ServerDoCombo(class<Combo> ComboClass)
 
     if(!CanDoCombo(ComboClass))
         return;
+		
+	if(IsLastmanStandingAndAllowedCombo()) {
+	    Super.ServerDoCombo(ComboClass);
+        return;
+	}
 
-    if(TAM_GRI(GameReplicationInfo) == None || TAM_GRI(Level.GRI).bDisableTeamCombos || ComboClass.default.Duration<=1)
+    if(TAM_GRI(GameReplicationInfo) == None 
+	&&(TAM_GRI(Level.GRI).bDisableTeamCombos 
+	|| ComboClass.default.Duration<=1))
     {
         Super.ServerDoCombo(ComboClass);
         return;
