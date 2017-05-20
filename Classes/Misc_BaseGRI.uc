@@ -49,7 +49,7 @@ var string ScoreboardBlueTeamName;
 var bool UseZAxisRadar;
 var bool bOverkillMessage;
 
-var Controller TeamLastPlayer[2];
+var int PlayersAlive[2];
 
 var Team_GameBase.EServerLinkStatus ServerLinkStatus; //enum type dependson Team_GameBase
 
@@ -57,7 +57,7 @@ replication
 {
 
     reliable if(bNetInitial && Role == ROLE_Authority)
-        RoundTime, SecsPerRound, bDisableSpeed, bDisableBooster, bDisableInvis, TeamLastPlayer,
+        RoundTime, SecsPerRound, bDisableSpeed, bDisableBooster, bDisableInvis, PlayersAlive,
         bDisableBerserk, bEnableLMSCombos, StartingHealth, StartingArmor, MaxHealth, OTDamage,
         OTInterval, CampThreshold, bKickExcessiveCampers, bForceRUP, ForceRUPMinPlayers,
         TimeOuts, Acronym, EnableNewNet, ShieldTextureName, ShowServerName,

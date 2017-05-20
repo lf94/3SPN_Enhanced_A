@@ -172,7 +172,6 @@ var config bool AlwaysRestartServerWhenEmpty;
 var Sound OvertimeSound;
 var config bool bOverkillMessage;
 
-var Controller TeamLastPlayer[2];
 
 //var config bool UseZAxisRadar; // don't make a config option
 var bool UseZAxisRadar;
@@ -258,8 +257,6 @@ function InitGameReplicationInfo()
 	Misc_BaseGRI(GameReplicationInfo).bOverkillMessage = bOverkillMessage;
     Misc_BaseGRI(GameReplicationInfo).ServerLinkStatus = ServerLinkStatus;
 	
-	Misc_BaseGRI(GameReplicationInfo).TeamLastPlayer[0] = None;
-	Misc_BaseGRI(GameReplicationInfo).TeamLastPlayer[1] = None;
 }
 
 function GetServerDetails(out ServerResponseLine ServerState)
@@ -1317,6 +1314,8 @@ function StartMatch()
 
     RoundTime = SecsPerRound;
     Misc_BaseGRI(GameReplicationInfo).RoundTime = RoundTime;
+	
+	
     RespawnTime = 2;
 //    LockTime = default.LockTime;
 
@@ -1360,6 +1359,10 @@ function StartNewRound()
     Misc_BaseGRI(GameReplicationInfo).RoundTime = RoundTime;
     Misc_BaseGRI(GameReplicationInfo).RoundMinute = RoundTime;
     Misc_BaseGRI(GameReplicationInfo).NetUpdateTime = Level.TimeSeconds - 1;
+	
+	Misc_BaseGRI(GameReplicationInfo).PlayersAlive[0] = GameReplicationInfo.Teams[0].Size;
+	Misc_BaseGRI(GameReplicationInfo).PlayersAlive[1] = GameReplicationInfo.Teams[1].Size;
+	
 
     for(C = Level.ControllerList; C != None; C = C.NextController)
         if(PlayerController(C) != None)
@@ -2890,44 +2893,50 @@ function Killed(Controller Killer, Controller Killed, Pawn KilledPawn, class<Dam
 function CheckForAlone(Controller Died, int TeamIndex)
 {
     local Controller c;
+	local Controller last;
     local int alive[2];
 	local TAM_GRI T;
+	local int CurrentPlayerTeam;
 
     if(DarkHorse == Died)
     {
         DarkHorse = None;
         return;
     }
+	
+	T = TAM_GRI(Level.GRI);
 
     for(c = Level.ControllerList; c != None; c = c.NextController)
     {
         if(c == Died || c.Pawn == None || c.GetTeamNum() == 255)
             continue;
+			
+		CurrentPlayerTeam = c.GetTeamNum();
 
-        alive[c.GetTeamNum()]++;
+        alive[CurrentPlayerTeam]++;
+		T.PlayersAlive[CurrentPlayerTeam] = alive[CurrentPlayerTeam];
+		
         if(alive[TeamIndex] > 1)
             return;
 
-        if(c.GetTeamNum() == TeamIndex)
+        if(CurrentPlayerTeam == TeamIndex)
         {
             if(alive[TeamIndex] != 1)
-                TeamLastPlayer[TeamIndex] = None;
+                last = None;
             else
-                TeamLastPlayer[TeamIndex] = c;
+                last = c;
         }
     }
 	
-	T = TAM_GRI(Level.GRI);
-    T.TeamLastPlayer[TeamIndex] = TeamLastPlayer[TeamIndex];
 
-    if(alive[TeamIndex] != 1 || TeamLastPlayer[TeamIndex] == None)
+    if(alive[TeamIndex] != 1 || last == None)
         return;
 
-    if(Misc_Player(TeamLastPlayer[TeamIndex]) != None)
-        Misc_Player(TeamLastPlayer[TeamIndex]).ClientPlayAlone();
+    if(Misc_Player(last) != None)
+        Misc_Player(last).ClientPlayAlone();
 
     if(DarkHorse == None && (alive[int(!bool(TeamIndex))] >= 3 && NumPlayers + NumBots >= 4))
-        DarkHorse = TeamLastPlayer[TeamIndex];
+        DarkHorse = last;
 }
 
 // used to show 'player is out' message

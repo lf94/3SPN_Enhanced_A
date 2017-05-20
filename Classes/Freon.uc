@@ -411,6 +411,9 @@ function PlayerThawed(Freon_Pawn Thawed, optional float Health, optional float S
         TAM_TeamInfoRed(Teams[Team]).ComboManager.PlayerSpawned(C);
     else if(TAM_TeamInfoBlue(Teams[Team]) != None && TAM_TeamInfoBlue(Teams[Team]).ComboManager != None)
         TAM_TeamInfoBlue(Teams[Team]).ComboManager.PlayerSpawned(C);
+		
+	// In TAM it's not possible to bring back teammates - in Freon it is. So we have to keep track of people thawed.
+	TAM_GRI(Level.GRI).PlayersAlive[Team]++;
 
     if(!dying)
     {

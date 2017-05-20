@@ -1039,11 +1039,13 @@ function bool IsLastmanStandingAndAllowedCombo() {
 	TI = Pawn.GetTeam();
 	
     if (T == None || TI == None) { return false; }
-	return (T.TeamLastPlayer[Pawn.GetTeamNum()] != None || TI.Size <= 1) && T.bEnableLMSCombos;	
+	return (T.PlayersAlive[Pawn.GetTeamNum()] <= 1 || TI.Size <= 1);	
 }
 
 function ServerDoCombo(class<Combo> ComboClass)
 {
+    local TAM_GRI T;
+	
     if(class<ComboBerserk>(ComboClass) != None)
         ComboClass = class<Combo>(DynamicLoadObject("3SPN_Enhanced_A.Misc_ComboBerserk", class'Class'));
     else if(class<ComboSpeed>(ComboClass) != None && class<Misc_ComboSpeed>(ComboClass) == None)
@@ -1055,14 +1057,21 @@ function ServerDoCombo(class<Combo> ComboClass)
     if(!CanDoCombo(ComboClass))
         return;
 		
-	if(IsLastmanStandingAndAllowedCombo()) {
-	    Super.ServerDoCombo(ComboClass);
-        return;
+	T  = TAM_GRI(Level.GRI);
+	
+	// If it is not ressurection combo, and LMS combos enabled...
+	if(class<NecroCombo>(ComboClass) == None && T.bEnableLMSCombos) {
+	    if(IsLastmanStandingAndAllowedCombo()) {
+				Super.ServerDoCombo(ComboClass);
+				return;
+		}
+		return;
 	}
-
+		
+	
     if(TAM_GRI(GameReplicationInfo) == None 
-	&&(TAM_GRI(Level.GRI).bDisableTeamCombos 
-	|| ComboClass.default.Duration<=1))
+	|| TAM_GRI(Level.GRI).bDisableTeamCombos 
+	|| ComboClass.default.Duration<=1)
     {
         Super.ServerDoCombo(ComboClass);
         return;
